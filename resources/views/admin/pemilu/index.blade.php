@@ -31,12 +31,12 @@
                             <div class="flex flex-wrap justify-center items-center -mx-2">
                                 <div class="w-full flex justify-center items-center px-2 mb-2">
                                     <a href="{{ route('pemilu.show', ['pemilu' => $mElection->id]) }}"
-                                       class="w-full text-center font-bold p-2 border rounded text-blue-500 border-blue-500 hover:text-gray-100 hover:bg-blue-500 focus:outline-none focus:shadow-outline">Detail</a>
+                                       class="w-full text-center font-bold p-2 border rounded text-gray-100 bg-blue-500 hover:bg-blue-700 focus:outline-none focus:shadow-outline">Detail</a>
                                 </div>
                                 <div class="w-1/2 flex justify-center items-center px-2 mb-2">
                                     <a href="{{ route('pemilu.edit', ['pemilu' => $mElection->id]) }}"
-                                       class="w-full text-center font-bold p-2 border rounded text-yellow-500 border-yellow-500 hover:text-gray-100 hover:bg-yellow-500 focus:outline-none focus:shadow-outline">
-                                        <i class="fas fa-pencil-alt"></i></a>
+                                       class="w-full text-center font-bold p-2 border rounded text-gray-100 bg-yellow-500 hover:bg-yellow-700 focus:outline-none focus:shadow-outline">
+                                        <i class="fas fa-pencil-alt"></i> Edit</a>
                                 </div>
                                 <form action="{{ route('pemilu.destroy', ['pemilu' => $mElection->id]) }}"
                                       method="post"
@@ -44,8 +44,8 @@
                                     @csrf
                                     @method('delete')
                                     <button type="submit"
-                                            class="w-full text-center font-bold p-2 border rounded text-red-500 border-red-500 hover:text-gray-100 hover:bg-red-500 focus:outline-none focus:shadow-outline">
-                                        <i class="fas fa-trash"></i>
+                                            class="w-full text-center font-bold p-2 border rounded text-gray-100 bg-red-500 hover:bg-red-700 focus:outline-none focus:shadow-outline">
+                                        <i class="fas fa-trash"></i> Hapus
                                     </button>
                                 </form>
                             </div>

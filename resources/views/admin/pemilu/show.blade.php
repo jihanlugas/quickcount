@@ -32,14 +32,15 @@
                         <td class="px-4 py-2">{{ $mCandidate->wakil }}</td>
                         <td class="px-4 py-2 flex justify-around items-center">
                             <a href="{{ route('candidate.edit', ['pemilu' => $mElection->id ,'candidate' => $mCandidate->id]) }}"
-                               class="bg-yellow-500 mx-2 p-4 rounded-lg "><i class="fas fa-pencil-alt"></i></a>
+                               class="text-gray-100 bg-yellow-500 hover:bg-yellow-700 mx-2 p-4 rounded-lg focus:outline-none focus:shadow-outline">
+                                <i class="fas fa-pencil-alt"></i></a>
                             <form
                                 action="{{ route('candidate.destroy', ['pemilu' => $mElection->id ,'candidate' => $mCandidate->id]) }}"
                                 method="post">
                                 @csrf
                                 @method('delete')
                                 <button type="submit"
-                                        class="bg-red-500 mx-2 p-4 rounded-lg">
+                                        class="text-gray-100 bg-red-500 hover:bg-red-700 mx-2 p-4 rounded-lg focus:outline-none focus:shadow-outline">
                                     <i class="fas fa-trash"></i>
                                 </button>
                             </form>
