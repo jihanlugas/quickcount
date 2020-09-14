@@ -4,7 +4,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0a481694-81a2-4bce-8adc-ab86934a99eb" name="Default Changelist" comment="" />
+    <list default="true" id="0a481694-81a2-4bce-8adc-ab86934a99eb" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Candidate.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/CandidateController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/PemiluController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Peroid.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Position.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_09_13_081950_create_positions_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_09_13_082004_create_peroids_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_09_13_120608_create_candidates_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/seeds/initSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/candidate/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/candidate/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/pemilu/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/pemilu/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/pemilu/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Election.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Election.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_11_143509_create_elections_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_11_143509_create_elections_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/createpilkada.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/pemilu/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/pilkada.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/flash.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/flash.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -122,24 +148,31 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1hBqxxlNQofmj5GEWV0MtzNFLWO" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/admin/candidate" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/admin/candidate" />
+      <recent name="$PROJECT_DIR$/app/Http/Controllers" />
+      <recent name="$PROJECT_DIR$/resources/views/admin/pemilu" />
       <recent name="$PROJECT_DIR$/resources/views/admin" />
       <recent name="$PROJECT_DIR$/resources/views" />
-      <recent name="$PROJECT_DIR$/app/Http/Controllers" />
-      <recent name="$PROJECT_DIR$/resources/js" />
-      <recent name="$PROJECT_DIR$/resources" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/admin/pilkada" />
     </key>
   </component>
   <component name="RunManager">
@@ -159,11 +192,17 @@
       <workItem from="1599495084383" duration="3861000" />
       <workItem from="1599572983583" duration="8522000" />
       <workItem from="1599834487188" duration="10371000" />
+      <workItem from="1599898825152" duration="2180000" />
+      <workItem from="1599936362907" duration="5719000" />
+      <workItem from="1599974682119" duration="23573000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="620" y="346" width="386" height="233" key="#Composer" timestamp="1599496122476">
@@ -194,9 +233,9 @@
       <screen x="37" y="27" width="1563" height="873" />
     </state>
     <state width="1521" height="220" key="GridCell.Tab.0.right/37.27.1563.873@37.27.1563.873" timestamp="1599502189210" />
-    <state x="481" y="212" width="672" height="678" key="search.everywhere.popup" timestamp="1599837434058">
+    <state x="481" y="212" width="672" height="678" key="search.everywhere.popup" timestamp="1600014510218">
       <screen x="37" y="27" width="1563" height="873" />
     </state>
-    <state x="481" y="212" width="672" height="678" key="search.everywhere.popup/37.27.1563.873@37.27.1563.873" timestamp="1599837434058" />
+    <state x="481" y="212" width="672" height="678" key="search.everywhere.popup/37.27.1563.873@37.27.1563.873" timestamp="1600014510218" />
   </component>
 </project>

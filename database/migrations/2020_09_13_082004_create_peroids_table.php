@@ -15,7 +15,7 @@ class CreatePeroidsTable extends Migration
     {
         Schema::create('peroids', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('name');
         });
     }
 

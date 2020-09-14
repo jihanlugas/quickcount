@@ -23,17 +23,15 @@
                     @enderror
                 </div>
                 <div class="flex flex-wrap mb-6 px-2">
-                    <label for="position" class="block text-gray-700 text-sm font-bold mb-2">
+                    <label for="position_id" class="block text-gray-700 text-sm font-bold mb-2">
                         Jabatan
                     </label>
                     <div class="relative w-full">
-                        <select class="block form-input appearance-none w-full pr-8 @error('position') border-red-500 @enderror" id="grid-state" name="position"
-                                value="{{ old('position') }}" autofocus>
+                        <select class="block form-input appearance-none w-full pr-8 @error('position_id') border-red-500 @enderror" id="grid-state" name="position_id" autofocus>
                             <option value="">Pilih Jabatan</option>
-                            <option value="Presiden">Presiden</option>
-                            <option value="Gubernur">Gubernur</option>
-                            <option value="Walikota">Walikota</option>
-                            <option value="Bupati">Bupati</option>
+                            @foreach($mPositions as $mPosition)
+                                <option value="{{ $mPosition->id }}" {{ old('position_id') == $mPosition->id ? "selected" : ""}}>{{ $mPosition->name }}</option>
+                            @endforeach
                         </select>
                         <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                             <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -41,7 +39,7 @@
                             </svg>
                         </div>
                     </div>
-                    @error('position')
+                    @error('position_id')
                     <p class="text-red-500 text-xs italic mt-4">
                         {{ $message }}
                     </p>
@@ -49,23 +47,15 @@
                 </div>
                 <div class="flex flex-wrap">
                     <div class="w-full sm:w-1/2 px-2 mb-6">
-                        <label for="name" class="block text-gray-700 text-sm font-bold mb-2">
+                        <label for="start" class="block text-gray-700 text-sm font-bold mb-2">
                             Awal Periode
                         </label>
                         <div class="relative w-full">
-                            <select class="block form-input appearance-none w-full pr-8 @error('start') border-red-500 @enderror" id="grid-state" name="start"
-                                    value="{{ old('start') }}" autofocus>
+                            <select class="block form-input appearance-none w-full pr-8 @error('start') border-red-500 @enderror" id="grid-state" name="start" autofocus>
                                 <option value="">Pilih Periode</option>
-                                <option value="2019">2019</option>
-                                <option value="2020">2020</option>
-                                <option value="2021">2021</option>
-                                <option value="2022">2022</option>
-                                <option value="2023">2023</option>
-                                <option value="2024">2024</option>
-                                <option value="2025">2025</option>
-                                <option value="2026">2026</option>
-                                <option value="2027">2027</option>
-                                <option value="2028">2028</option>
+                                @foreach($mPeroids as $mPeroid)
+                                    <option value="{{ $mPeroid->id }}" {{ old('start') == $mPeroid->id ? "selected" : ""}}>{{ $mPeroid->name }}</option>
+                                @endforeach
                             </select>
                             <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                                 <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -84,19 +74,11 @@
                             Akhir Periode
                         </label>
                         <div class="relative w-full">
-                            <select class="block form-input appearance-none w-full pr-8 @error('end') border-red-500 @enderror" id="grid-state" name="end"
-                                    value="{{ old('end') }}" autofocus>
+                            <select class="block form-input appearance-none w-full pr-8 @error('end') border-red-500 @enderror" id="grid-state" name="end" autofocus>
                                 <option value="">Pilih Periode</option>
-                                <option value="2019">2019</option>
-                                <option value="2020">2020</option>
-                                <option value="2021">2021</option>
-                                <option value="2022">2022</option>
-                                <option value="2023">2023</option>
-                                <option value="2024">2024</option>
-                                <option value="2025">2025</option>
-                                <option value="2026">2026</option>
-                                <option value="2027">2027</option>
-                                <option value="2028">2028</option>
+                                @foreach($mPeroids as $mPeroid)
+                                    <option value="{{ $mPeroid->id }}" {{ old('end') == $mPeroid->id ? "selected" : ""}}>{{ $mPeroid->name }}</option>
+                                @endforeach
                             </select>
                             <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                                 <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -104,7 +86,7 @@
                                 </svg>
                             </div>
                         </div>
-                        @error('start')
+                        @error('end')
                         <p class="text-red-500 text-xs italic mt-4">
                             {{ $message }}
                         </p>
@@ -112,7 +94,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="flex flex-wrap items-center justify-end">
                 <button type="submit"
                         class="bg-blue-500 hover:bg-blue-700 text-gray-100 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">

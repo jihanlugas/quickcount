@@ -5,7 +5,8 @@
 @section('content')
     <div class="py-6 px-4 max-w-3xl mx-auto">
         @include('layouts.flash')
-        <form method="POST" action="{{ route('candidate.store', ['pemilu' => $mElection->id]) }}">
+        <form method="POST" action="{{ route('candidate.update', ['pemilu' => $mElection->id, 'candidate' => $mCandidate->id]) }}">
+            @method('PUT')
             @csrf
             <input type="hidden" name="election_id" value="{{ $mElection->id }}">
             <div class="mb-4 -mx-2">
@@ -16,7 +17,7 @@
 
                     <input id="ketua" type="text"
                            class="form-input w-full @error('ketua') border-red-500 @enderror"
-                           name="ketua" value="{{ old('ketua') }}" placeholder="Nama Kandidat ... " required autofocus>
+                           name="ketua" value="{{ $mCandidate->ketua }}" placeholder="Nama Kandidat ... " required autofocus>
                     @error('ketua')
                     <p class="text-red-500 text-xs italic mt-4">
                         {{ $message }}
@@ -30,7 +31,7 @@
 
                     <input id="wakil" type="text"
                            class="form-input w-full @error('wakil') border-red-500 @enderror"
-                           name="wakil" value="{{ old('wakil') }}" placeholder="Nama Wakil Kandidat ... " required autofocus>
+                           name="wakil" value="{{ $mCandidate->wakil }}" placeholder="Nama Wakil Kandidat ... " required autofocus>
                     @error('wakil')
                     <p class="text-red-500 text-xs italic mt-4">
                         {{ $message }}
@@ -45,7 +46,7 @@
                         <select class="block form-input appearance-none w-full pr-8 @error('nourut') border-red-500 @enderror" id="grid-state" name="nourut" autofocus>
                             <option value="">Pilih No Urut</option>
                             @foreach(['1', '2', '3', '4', '5'] as $noUrut)
-                                <option value="{{ $noUrut }}" {{ old('nourut') == $noUrut ? "selected" : ""}}>{{ $noUrut }}</option>
+                                <option value="{{ $noUrut }}" {{ $mCandidate->nourut == $noUrut ? "selected" : ""}}>{{ $noUrut }}</option>
                             @endforeach
                         </select>
                         <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">

@@ -15,7 +15,12 @@ class CreateCandidatesTable extends Migration
     {
         Schema::create('candidates', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('election_id');
+            $table->string('ketua');
+            $table->string('wakil');
+            $table->string('nourut');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

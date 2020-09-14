@@ -3,99 +3,99 @@
 namespace App\Http\Controllers;
 
 use App\Election;
+use App\Candidate;
 use App\Peroid;
 use App\Position;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
-class PemiluController extends AdminController
+class CandidateController extends AdminController
 {
-    protected function pemiluvalidator(array $data)
+    protected function candidatevalidator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required'],
-            'start' => ['required', 'numeric'],
-            'end' => ['required', 'numeric'],
-            'position_id' => ['required', 'numeric'],
+            'election_id' => ['required', 'numeric'],
+            'ketua' => ['required'],
+            'wakil' => ['required'],
+            'nourut' => ['required', 'numeric'],
         ]);
     }
 
-    public function index()
-    {
-        $mElections = Election::all();
-        return view('admin.pemilu.index', ['mElections' => $mElections]);
-    }
-
-    public function create(){
-        $mPeroids = Peroid::all();
-        $mPositions = Position::all();
-        return view('admin.pemilu.create', [
-            'mPeroids' => $mPeroids,
-            'mPositions' => $mPositions,
-        ]);
-    }
-
-    public function store(Request $request){
-        $this->pemiluvalidator($request->all())->validate();
-        DB::beginTransaction();
-        try {
-            $mElection = new Election();
-            $mElection->name = $request->name;
-            $mElection->start = $request->start;
-            $mElection->end = $request->end;
-            $mElection->position_id = $request->position_id;
-            $mElection->save();
-            DB::commit();
-
-            return redirect()->route('pemilu.index')->with('success', 'Berhasil Menambahkan Pemilu');
-        } catch (Throwable $e) {
-            DB::rollBack();
-            dd($e);
-        }
-    }
-
-    public function show($id)
-    {
+    public function create($id){
         $mElection = Election::findOrFail($id);
-
-        return view('admin.pemilu.show', ['mElection' => $mElection]);
-    }
-
-    public function edit($id)
-    {
-        $mPeroids = Peroid::all();
-        $mPositions = Position::all();
-        $mElection = Election::findOrFail($id);
-        return view('admin.pemilu.edit', [
+        return view('admin.candidate.create', [
             'mElection' => $mElection,
-            'mPeroids' => $mPeroids,
-            'mPositions' => $mPositions,
         ]);
     }
 
-    public function update(Request $request, $id){
-        $this->pemiluvalidator($request->all())->validate();
+    public function store(Request $request, $id){
+        Election::findOrFail($id);
+        if ($id == $request->election_id ){
+            $this->candidatevalidator($request->all())->validate();
+            DB::beginTransaction();
+            try {
+                $mCandidate = new Candidate();
+                $mCandidate->election_id = $request->election_id;
+                $mCandidate->ketua = $request->ketua;
+                $mCandidate->wakil = $request->wakil;
+                $mCandidate->nourut = $request->nourut;
+                $mCandidate->save();
+                DB::commit();
+
+                return redirect()->route('pemilu.show', ['pemilu' => $id])->with('success', 'Berhasil Menambahkan Kandidat');
+            } catch (Throwable $e) {
+                DB::rollBack();
+                dd($e);
+            }
+        }else{
+            return redirect()->route('pemilu.show', ['pemilu' => $id])->with('danger', 'Terjadi Kesalahan');
+        }
+    }
+
+    public function edit($election_id, $id)
+    {
+        $mElection = Election::findOrFail($election_id);
+        $mCandidate = Candidate::findOrFail($id);
+        return view('admin.candidate.edit', [
+            'mElection' => $mElection,
+            'mCandidate' => $mCandidate,
+        ]);
+    }
+
+    public function update(Request $request, $election_id, $id){
+        $this->candidatevalidator($request->all())->validate();
         DB::beginTransaction();
         try {
-            $mElection = Election::findOrFail($id);
-            $mElection->name = $request->name;
-            $mElection->start = $request->start;
-            $mElection->end = $request->end;
-            $mElection->position_id = $request->position_id;
-            $mElection->save();
+            $mElection = Election::findOrFail($election_id);
+            $mCandidate = Candidate::findOrFail($id);
+            $mCandidate->ketua = $request->ketua;
+            $mCandidate->wakil = $request->wakil;
+            $mCandidate->nourut = $request->nourut;
+            $mCandidate->save();
             DB::commit();
 
-            return redirect()->route('pemilu.index')->with('success', 'Berhasil Edit Pemilu');
+            return redirect()->route('pemilu.show', ['pemilu' => $election_id])->with('success', 'Berhasil Edit Kandidat');
         } catch (Throwable $e) {
             DB::rollBack();
             dd($e);
         }
     }
 
-    public function destroy($id)
+    public function destroy($election_id, $id)
     {
-        $mElection = Election::findOrFail($id);
-        die('destroy');
+        $mElection = Election::findOrFail($election_id);
+        $mCandidate = Candidate::findOrFail($id);
+
+        DB::beginTransaction();
+        try {
+            $mCandidate->delete();
+            DB::commit();
+
+            return redirect()->route('pemilu.show', ['pemilu' => $election_id])->with('success', 'Berhasil Hapus Kandidat');
+        } catch (Throwable $e) {
+            DB::rollBack();
+            dd($e);
+        }
     }
 }

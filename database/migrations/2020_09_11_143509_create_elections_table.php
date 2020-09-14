@@ -18,6 +18,7 @@ class CreateElectionsTable extends Migration
             $table->string("name");
             $table->string("start");
             $table->string("end");
+            $table->foreignId("position_id");
             $table->timestampsTz();
             $table->softDeletesTz();
         });
