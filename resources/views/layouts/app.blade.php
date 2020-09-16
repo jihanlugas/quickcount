@@ -42,8 +42,10 @@
                                     @if(Auth::user()->role_id == 1)
                                         <a href="{{ route('pemilu.index') }}"
                                            class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Pemilu</a>
-                                        <a href="{{ route('user') }}"
-                                           class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">User</a>
+                                        <a href="{{ route('tps.index') }}"
+                                           class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">TPS</a>
+                                        <a href="{{ route('user.index') }}"
+                                           class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Anggota</a>
                                     @endif
                                 @endguest
                             </div>
@@ -130,8 +132,10 @@
                         @if(Auth::user()->role_id == 1)
                             <a href="{{ route('pemilu.index') }}"
                                class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Pemilu</a>
-                            <a href="{{ route('user') }}"
-                               class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">User</a>
+                            <a href="{{ route('tps.index') }}"
+                               class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">TPS</a>
+                            <a href="{{ route('user.index') }}"
+                               class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Anggota</a>
                         @endif
                     @endguest
                 </div>

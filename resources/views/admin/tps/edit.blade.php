@@ -1,11 +1,12 @@
 @extends('layouts.app')
 
-@section('header', 'Tambah TPS')
+@section('header', 'Edit TPS')
 
 @section('content')
     <div class="py-6 px-4 max-w-3xl mx-auto">
         @include('layouts.flash')
-        <form method="POST" action="{{ route('tps.store') }}">
+        <form method="POST" action="{{ route('tps.update', ['tps' => $mTps->id ]) }}">
+            @method('PUT')
             @csrf
             <div class="mb-4 -mx-2">
                 <div class="flex flex-wrap mb-6 px-2">
@@ -14,7 +15,7 @@
                     </label>
                     <input id="name" type="text"
                            class="form-input w-full @error('name') border-red-500 @enderror"
-                           name="name" value="{{ old('name') }}" placeholder="Nama TPS ... " required autofocus>
+                           name="name" value="{{ $mTps->name }}" placeholder="Nama TPS ... " required autofocus>
                     @error('name')
                     <p class="text-red-500 text-xs italic mt-4">
                         {{ $message }}
@@ -28,10 +29,10 @@
                     <div class="relative w-full">
                         <select
                             class="block form-input appearance-none w-full pr-8 Tps_subdistrict_id @error('subdistrict_id') border-red-500 @enderror"
-                            id="grid-state" name="subdistrict_id" autofocus>
+                            id="grid-state" name="subdistrict_id" required autofocus>
                             <option value="">Pilih Kecamatan</option>
                             @foreach($mSubdistricts as $mSubdistrict)
-                                <option value="{{ $mSubdistrict->id }}" {{ old('subdistrict_id') == $mSubdistrict->id ? "selected" : ""}}>{{ $mSubdistrict->name }}</option>
+                                <option value="{{ $mSubdistrict->id }}" {{ $mTps->subdistrict_id == $mSubdistrict->id ? "selected" : ""}}>{{ $mSubdistrict->name }}</option>
                             @endforeach
                         </select>
                         <div
@@ -54,7 +55,7 @@
                     <div class="relative w-full">
                         <select
                             class="block form-input appearance-none w-full pr-8 Tps_village_id @error('village_id') border-red-500 @enderror"
-                            id="grid-state" name="village_id" autofocus>
+                            id="grid-state" name="village_id" required autofocus>
                         </select>
                         <div
                             class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
@@ -75,7 +76,7 @@
                     </label>
                     <textarea id="address" type="text"
                            class="form-input w-full @error('address') border-red-500 @enderror"
-                           name="address" placeholder="Alamat ... " autofocus>{{ old('address') }}</textarea>
+                           name="address" placeholder="Alamat ... " required autofocus>{{ $mTps->address }}</textarea>
                     @error('address')
                     <p class="text-red-500 text-xs italic mt-4">
                         {{ $message }}
@@ -103,7 +104,7 @@
 
         var jSubdistrict = $('.Tps_subdistrict_id');
         var jVillage = $('.Tps_village_id');
-        var oldVillage = '{{ old('subdistrict_id') }}';
+        var oldVillage = '{{ $mTps->subdistrict_id }}';
 
 
         $(document).ready(function (){

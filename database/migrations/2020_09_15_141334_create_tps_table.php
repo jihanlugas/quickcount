@@ -15,7 +15,12 @@ class CreateTpsTable extends Migration
     {
         Schema::create('tps', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('subdistrict_id');
+            $table->foreignId('village_id');
+            $table->string('name');
+            $table->string('address', 255);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

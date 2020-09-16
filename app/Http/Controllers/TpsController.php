@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Candidate;
+use App\Subdistrict;
+use App\Tps;
 use App\Election;
 use App\Peroid;
 use App\Position;
@@ -10,88 +11,71 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
-class PemiluController extends AdminController
+class TpsController extends AdminController
 {
-    protected function pemiluvalidator(array $data)
+    protected function tpsvalidator(array $data)
     {
         return Validator::make($data, [
             'name' => ['required'],
-            'start' => ['required', 'numeric'],
-            'end' => ['required', 'numeric'],
-            'position_id' => ['required', 'numeric'],
+            'subdistrict_id' => ['required', 'numeric'],
+            'village_id' => ['required', 'numeric'],
+            'address' => ['required'],
         ]);
     }
 
     public function index()
     {
-        $mElections = Election::all();
-        return view('admin.pemilu.index', ['mElections' => $mElections]);
+        $mTpss = Tps::all();
+        return view('admin.tps.index', ['mTpss' => $mTpss]);
     }
 
     public function create(){
-        $mPeroids = Peroid::all();
-        $mPositions = Position::all();
-        return view('admin.pemilu.create', [
-            'mPeroids' => $mPeroids,
-            'mPositions' => $mPositions,
-        ]);
+        $mSubdistricts = Subdistrict::all();
+        return view('admin.tps.create', ['mSubdistricts' => $mSubdistricts]);
     }
 
     public function store(Request $request){
-        $this->pemiluvalidator($request->all())->validate();
+        $this->tpsvalidator($request->all())->validate();
         DB::beginTransaction();
         try {
-            $mElection = new Election();
-            $mElection->name = $request->name;
-            $mElection->start = $request->start;
-            $mElection->end = $request->end;
-            $mElection->position_id = $request->position_id;
-            $mElection->save();
+            $mTps = new Tps();
+            $mTps->name = $request->name;
+            $mTps->subdistrict_id = $request->subdistrict_id;
+            $mTps->village_id = $request->village_id;
+            $mTps->address = $request->address;
+            $mTps->save();
             DB::commit();
 
-            return redirect()->route('pemilu.index')->with('success', 'Berhasil Menambahkan Pemilu');
+            return redirect()->route('tps.index')->with('success', 'Berhasil Menambahkan Tps');
         } catch (Throwable $e) {
             DB::rollBack();
             dd($e);
         }
     }
 
-//    public function show($id)
-//    {
-//        $mElection = Election::findOrFail($id);
-//        $mCandidates = Candidate::all()->where('election_id', $mElection->id)->sortBy('nourut');
-//
-//        return view('admin.pemilu.show', [
-//            'mElection' => $mElection,
-//            'mCandidates' => $mCandidates,
-//        ]);
-//    }
-
     public function edit($id)
     {
-        $mPeroids = Peroid::all();
-        $mPositions = Position::all();
-        $mElection = Election::findOrFail($id);
-        return view('admin.pemilu.edit', [
-            'mElection' => $mElection,
-            'mPeroids' => $mPeroids,
-            'mPositions' => $mPositions,
+        $mSubdistricts = Subdistrict::all();
+        $mTps = Tps::findOrFail($id);
+        return view('admin.tps.edit', [
+            'mTps' => $mTps,
+            'mSubdistricts' => $mSubdistricts,
         ]);
     }
 
     public function update(Request $request, $id){
-        $this->pemiluvalidator($request->all())->validate();
+        $this->tpsvalidator($request->all())->validate();
         DB::beginTransaction();
         try {
-            $mElection = Election::findOrFail($id);
-            $mElection->name = $request->name;
-            $mElection->start = $request->start;
-            $mElection->end = $request->end;
-            $mElection->position_id = $request->position_id;
-            $mElection->save();
+            $mTps = Tps::findOrFail($id);
+            $mTps->name = $request->name;
+            $mTps->subdistrict_id = $request->subdistrict_id;
+            $mTps->village_id = $request->village_id;
+            $mTps->address = $request->address;
+            $mTps->save();
             DB::commit();
 
-            return redirect()->route('pemilu.index')->with('success', 'Berhasil Edit Pemilu');
+            return redirect()->route('tps.index')->with('success', 'Berhasil Edit Tps');
         } catch (Throwable $e) {
             DB::rollBack();
             dd($e);
@@ -100,17 +84,19 @@ class PemiluController extends AdminController
 
     public function destroy($id)
     {
-        $mElection = Election::findOrFail($id);
+        $mTps = Tps::findOrFail($id);
 
         DB::beginTransaction();
         try {
-            $mElection->delete();
+            $mTps->delete();
             DB::commit();
 
-            return redirect()->route('pemilu.index')->with('success', 'Berhasil Hapus Pemilu');
+            return redirect()->route('tps.index')->with('success', 'Berhasil Hapus Tps');
         } catch (Throwable $e) {
             DB::rollBack();
             dd($e);
         }
     }
+
+
 }

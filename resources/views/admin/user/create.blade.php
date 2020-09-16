@@ -1,20 +1,20 @@
 @extends('layouts.app')
 
-@section('header', 'Tambah TPS')
+@section('header', 'Tambah Anggota')
 
 @section('content')
     <div class="py-6 px-4 max-w-3xl mx-auto">
         @include('layouts.flash')
-        <form method="POST" action="{{ route('tps.store') }}">
+        <form method="POST" action="{{ route('user.store') }}">
             @csrf
             <div class="mb-4 -mx-2">
                 <div class="flex flex-wrap mb-6 px-2">
                     <label for="name" class="block text-gray-700 text-sm font-bold mb-2">
-                        Nama TPS
+                        Nama Anggota
                     </label>
                     <input id="name" type="text"
                            class="form-input w-full @error('name') border-red-500 @enderror"
-                           name="name" value="{{ old('name') }}" placeholder="Nama TPS ... " required autofocus>
+                           name="name" value="{{ old('name') }}" placeholder="Nama Anggota ... " required autofocus>
                     @error('name')
                     <p class="text-red-500 text-xs italic mt-4">
                         {{ $message }}
@@ -22,48 +22,52 @@
                     @enderror
                 </div>
                 <div class="flex flex-wrap mb-6 px-2">
-                    <label for="subdistrict_id" class="block text-gray-700 text-sm font-bold mb-2">
-                        Kecamatan
+                    <label for="email" class="block text-gray-700 text-sm font-bold mb-2">
+                        Email
                     </label>
-                    <div class="relative w-full">
-                        <select
-                            class="block form-input appearance-none w-full pr-8 Tps_subdistrict_id @error('subdistrict_id') border-red-500 @enderror"
-                            id="grid-state" name="subdistrict_id" autofocus>
-                            <option value="">Pilih Kecamatan</option>
-                            @foreach($mSubdistricts as $mSubdistrict)
-                                <option value="{{ $mSubdistrict->id }}" {{ old('subdistrict_id') == $mSubdistrict->id ? "selected" : ""}}>{{ $mSubdistrict->name }}</option>
-                            @endforeach
-                        </select>
-                        <div
-                            class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
-                            </svg>
-                        </div>
-                    </div>
-                    @error('subdistrict_id')
+                    <input id="email" type="email"
+                           class="form-input w-full @error('email') border-red-500 @enderror"
+                           name="email" value="{{ old('email') }}" placeholder="Email ... " required autofocus>
+                    @error('email')
                     <p class="text-red-500 text-xs italic mt-4">
                         {{ $message }}
                     </p>
                     @enderror
                 </div>
                 <div class="flex flex-wrap mb-6 px-2">
-                    <label for="village_id" class="block text-gray-700 text-sm font-bold mb-2">
-                        Kelurahan / Desa
+                    <label for="password" class="block text-gray-700 text-sm font-bold mb-2">
+                        Password
                     </label>
-                    <div class="relative w-full">
-                        <select
-                            class="block form-input appearance-none w-full pr-8 Tps_village_id @error('village_id') border-red-500 @enderror"
-                            id="grid-state" name="village_id" autofocus>
-                        </select>
-                        <div
-                            class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
-                            </svg>
-                        </div>
-                    </div>
-                    @error('village_id')
+                    <input id="password" type="password"
+                           class="form-input w-full @error('password') border-red-500 @enderror"
+                           name="password" placeholder="Password ... " required autofocus>
+                    @error('password')
+                    <p class="text-red-500 text-xs italic mt-4">
+                        {{ $message }}
+                    </p>
+                    @enderror
+                </div>
+                <div class="flex flex-wrap mb-6 px-2">
+                    <label for="password_confirmation" class="block text-gray-700 text-sm font-bold mb-2">
+                        Konfirmasi Password
+                    </label>
+                    <input id="password_confirmation" type="password"
+                           class="form-input w-full @error('password_confirmation') border-red-500 @enderror"
+                           name="password_confirmation" placeholder="Konfirmasi Password ... " required autofocus>
+                    @error('password_confirmation')
+                    <p class="text-red-500 text-xs italic mt-4">
+                        {{ $message }}
+                    </p>
+                    @enderror
+                </div>
+                <div class="flex flex-wrap mb-6 px-2">
+                    <label for="phone" class="block text-gray-700 text-sm font-bold mb-2">
+                        No. Handphone
+                    </label>
+                    <input id="phone" type="text"
+                           class="form-input w-full @error('phone') border-red-500 @enderror"
+                           name="phone" value="{{ old('phone') }}" placeholder="No. Handphone ... " required autofocus>
+                    @error('phone')
                     <p class="text-red-500 text-xs italic mt-4">
                         {{ $message }}
                     </p>
@@ -74,8 +78,8 @@
                         Alamat
                     </label>
                     <textarea id="address" type="text"
-                           class="form-input w-full @error('address') border-red-500 @enderror"
-                           name="address" placeholder="Alamat ... " autofocus>{{ old('address') }}</textarea>
+                              class="form-input w-full @error('address') border-red-500 @enderror"
+                              name="address" placeholder="Alamat ... " required autofocus>{{ old('address') }}</textarea>
                     @error('address')
                     <p class="text-red-500 text-xs italic mt-4">
                         {{ $message }}
@@ -92,53 +96,3 @@
         </form>
     </div>
 @endsection
-
-@push('script')
-    <script>
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
-            }
-        });
-
-        var jSubdistrict = $('.Tps_subdistrict_id');
-        var jVillage = $('.Tps_village_id');
-        var oldVillage = '{{ old('subdistrict_id') }}';
-
-
-        $(document).ready(function (){
-            getVillages(oldVillage)
-            $('.Tps_subdistrict_id').change(function (){
-                getVillages()
-            })
-        })
-
-        function getVillages(oldVillage = ""){
-            var tVillageOption = `<option value="">Pilih Desa / Kelurahan</option>`;
-            let subdistrict_id = jSubdistrict.val();
-            if (subdistrict_id){
-                var data = {
-                    subdistrict_id: subdistrict_id
-                }
-                $.ajax({
-                    type:'POST',
-                    dataType: 'json',
-                    url: '{{ route('ajax.getvillages') }}',
-                    data: data,
-                    success:function(res) {
-                        res.forEach(function (village){
-                            tVillageOption += `<option value="${village.id}">${village.name}</option>`;
-                        });
-                    }
-                }).done(function (){
-                    jVillage.html(tVillageOption);
-                    if (oldVillage){
-                        jVillage.find(`[value="${oldVillage}"]`).attr('selected', 'selected');
-                    }
-                });
-            }else{
-                jVillage.html(tVillageOption);
-            }
-        }
-    </script>
-@endpush

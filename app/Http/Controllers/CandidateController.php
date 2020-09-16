@@ -22,16 +22,29 @@ class CandidateController extends AdminController
         ]);
     }
 
-    public function create($id){
+    public function index($id)
+    {
+        $mElection = Election::findOrFail($id);
+        $mCandidates = Candidate::all()->where('election_id', $mElection->id)->sortBy('nourut');
+
+        return view('admin.candidate.index', [
+            'mElection' => $mElection,
+            'mCandidates' => $mCandidates,
+        ]);
+    }
+
+    public function create($id)
+    {
         $mElection = Election::findOrFail($id);
         return view('admin.candidate.create', [
             'mElection' => $mElection,
         ]);
     }
 
-    public function store(Request $request, $id){
+    public function store(Request $request, $id)
+    {
         Election::findOrFail($id);
-        if ($id == $request->election_id ){
+        if ($id == $request->election_id) {
             $this->candidatevalidator($request->all())->validate();
             DB::beginTransaction();
             try {
@@ -43,13 +56,13 @@ class CandidateController extends AdminController
                 $mCandidate->save();
                 DB::commit();
 
-                return redirect()->route('pemilu.show', ['pemilu' => $id])->with('success', 'Berhasil Menambahkan Kandidat');
+                return redirect()->route('candidate.index', ['pemilu' => $id])->with('success', 'Berhasil Menambahkan Kandidat');
             } catch (Throwable $e) {
                 DB::rollBack();
                 dd($e);
             }
-        }else{
-            return redirect()->route('pemilu.show', ['pemilu' => $id])->with('danger', 'Terjadi Kesalahan');
+        } else {
+            return redirect()->route('candidate.index', ['pemilu' => $id])->with('danger', 'Terjadi Kesalahan');
         }
     }
 
@@ -63,7 +76,8 @@ class CandidateController extends AdminController
         ]);
     }
 
-    public function update(Request $request, $election_id, $id){
+    public function update(Request $request, $election_id, $id)
+    {
         $this->candidatevalidator($request->all())->validate();
         DB::beginTransaction();
         try {
@@ -75,7 +89,7 @@ class CandidateController extends AdminController
             $mCandidate->save();
             DB::commit();
 
-            return redirect()->route('pemilu.show', ['pemilu' => $election_id])->with('success', 'Berhasil Edit Kandidat');
+            return redirect()->route('candidate.index', ['pemilu' => $election_id])->with('success', 'Berhasil Edit Kandidat');
         } catch (Throwable $e) {
             DB::rollBack();
             dd($e);
@@ -92,7 +106,7 @@ class CandidateController extends AdminController
             $mCandidate->delete();
             DB::commit();
 
-            return redirect()->route('pemilu.show', ['pemilu' => $election_id])->with('success', 'Berhasil Hapus Kandidat');
+            return redirect()->route('candidate.index', ['pemilu' => $election_id])->with('success', 'Berhasil Hapus Kandidat');
         } catch (Throwable $e) {
             DB::rollBack();
             dd($e);

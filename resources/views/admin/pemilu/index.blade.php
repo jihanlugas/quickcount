@@ -30,8 +30,8 @@
                         <div class="w-full flex flex-col mt-4">
                             <div class="flex flex-wrap justify-center items-center -mx-2">
                                 <div class="w-full flex justify-center items-center px-2 mb-2">
-                                    <a href="{{ route('pemilu.show', ['pemilu' => $mElection->id]) }}"
-                                       class="w-full text-center font-bold p-2 border rounded text-gray-100 bg-blue-500 hover:bg-blue-700 focus:outline-none focus:shadow-outline">Detail</a>
+                                    <a href="{{ route('candidate.index', ['pemilu' => $mElection->id]) }}"
+                                       class="w-full text-center font-bold p-2 border rounded text-gray-100 bg-blue-500 hover:bg-blue-700 focus:outline-none focus:shadow-outline">Kandidat</a>
                                 </div>
                                 <div class="w-1/2 flex justify-center items-center px-2 mb-2">
                                     <a href="{{ route('pemilu.edit', ['pemilu' => $mElection->id]) }}"

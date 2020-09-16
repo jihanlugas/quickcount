@@ -56,16 +56,16 @@ class PemiluController extends AdminController
         }
     }
 
-    public function show($id)
-    {
-        $mElection = Election::findOrFail($id);
-        $mCandidates = Candidate::all()->where('election_id', $mElection->id)->sortBy('nourut');
-
-        return view('admin.pemilu.show', [
-            'mElection' => $mElection,
-            'mCandidates' => $mCandidates,
-        ]);
-    }
+//    public function show($id)
+//    {
+//        $mElection = Election::findOrFail($id);
+//        $mCandidates = Candidate::all()->where('election_id', $mElection->id)->sortBy('nourut');
+//
+//        return view('admin.pemilu.show', [
+//            'mElection' => $mElection,
+//            'mCandidates' => $mCandidates,
+//        ]);
+//    }
 
     public function edit($id)
     {

@@ -1,17 +1,17 @@
 @extends('layouts.app')
 
-@section('header', 'TPS')
+@section('header', 'Anggota')
 
 @section('content')
     <div class="py-6 px-4 max-w-3xl mx-auto">
         @include('layouts.flash')
         <div class="w-full flex justify-between items-center mb-4">
             <div class="font-bold text-xl">
-                {{ "Data TPS"}}
+                {{ "Data Anggota"}}
             </div>
-            <a href="{{ route('tps.create') }}"
+            <a href="{{ route('user.create') }}"
                class="bg-blue-500 hover:bg-blue-700 text-gray-100 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                Tambah TPS
+                Tambah Anggota
             </a>
         </div>
         <div class="w-full overflow-auto">
@@ -19,25 +19,25 @@
                 <thead>
                 <tr class="">
                     <th class="truncate border-b border-t p-4">{{ "Nama" }}</th>
-                    <th class="truncate border-b border-t p-4">{{ "Kecamatan" }}</th>
-                    <th class="truncate border-b border-t p-4">{{ "Kelurahan / Desa" }}</th>
+                    <th class="truncate border-b border-t p-4">{{ "Email" }}</th>
+                    <th class="truncate border-b border-t p-4">{{ "No. Handphone" }}</th>
                     <th class="truncate border-b border-t p-4">{{ "Alamat" }}</th>
                     <th class="truncate border-b border-t p-4">{{ "Action" }}</th>
                 </tr>
                 </thead>
                 <tbody>
-                @forelse($mTpss as $i => $mTps)
+                @forelse($mUsers as $i => $mUser)
                     <tr class="<?= $i % 2 == 0 ? 'bg-gray-200' : '' ?>">
-                        <td class="px-4 py-2">{{ $mTps->name }}</td>
-                        <td class="px-4 py-2">{{ $mTps->subdistrict->name }}</td>
-                        <td class="px-4 py-2">{{ $mTps->village->name }}</td>
-                        <td class="px-4 py-2">{{ $mTps->address }}</td>
+                        <td class="px-4 py-2">{{ $mUser->name }}</td>
+                        <td class="px-4 py-2">{{ $mUser->email }}</td>
+                        <td class="px-4 py-2">{{ $mUser->phone }}</td>
+                        <td class="px-4 py-2">{{ $mUser->address }}</td>
                         <td class="px-4 py-2 flex justify-around items-center">
-                            <a href="{{ route('tps.edit', ['tps' => $mTps->id]) }}"
+                            <a href="{{ route('user.edit', ['user' => $mUser->id]) }}"
                                class="text-gray-100 bg-yellow-500 hover:bg-yellow-700 mx-2 px-3 py-2  rounded-lg focus:outline-none focus:shadow-outline">
                                 <i class="fas fa-pencil-alt"></i></a>
                             <form
-                                action="{{ route('tps.destroy', ['tps' => $mTps->id]) }}"
+                                action="{{ route('user.destroy', ['user' => $mUser->id]) }}"
                                 method="post">
                                 @csrf
                                 @method('delete')
