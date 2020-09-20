@@ -52,7 +52,7 @@ class AjaxController extends AdminController
         return response()->json($mVillages);
     }
 
-    public function getvillagetps(Request $request)
+    public function getvillagetpss(Request $request)
     {
         $mVillages = Village::with('tpss')->where('subdistrict_id', $request->subdistrict_id)->get();
 //        $mVillages = Village::where('subdistrict_id', $request->subdistrict_id)->get();
