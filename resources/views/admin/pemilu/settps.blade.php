@@ -244,7 +244,7 @@
                 $.ajax({
                     type: 'POST',
                     dataType: 'json',
-                    url: '{{ route('ajax.getvillagetps') }}',
+                    url: '{{ route('ajax.getvillagetpss') }}',
                     data: data,
                     success: function (res) {
                         res.forEach(function (village) {

@@ -5,67 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a481694-81a2-4bce-8adc-ab86934a99eb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/District.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Electiontps.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Electionvote.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/ExpiredController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/MemberController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/PerhitunganController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/VoteController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/LicenseMiddleware.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Province.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Vote.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_09_17_161738_create_electiontps_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_09_18_141955_create_districts_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_09_18_142001_create_provinces_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_09_19_114943_create_votes_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_09_19_183124_create_electionvotes_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/pemilu/settps.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/user/tps.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/expired.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/member/vote/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/member/vote/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/member/vote/voting.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/perhitungan/detail.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/perhitungan/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AjaxController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AjaxController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeControllerdelete.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PemiluController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PemiluController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PublicController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PublicController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TpsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TpsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Position.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Position.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Tps.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Tps.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Village.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Village.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_11_143509_create_elections_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_11_143509_create_elections_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_13_081950_create_positions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_13_081950_create_positions_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_15_141334_create_tps_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_15_141334_create_tps_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_15_144319_create_subdistricts_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_15_144319_create_subdistricts_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_15_151635_create_villages_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_15_151635_create_villages_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/InitialSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/InitialSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeds/StateSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/StateSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/pemilu/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/pemilu/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/pemilu/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/pemilu/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/pemilu/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/pemilu/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/tps/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/tps/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/tps/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/tps/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/user/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/user/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/user/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/user/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -240,7 +181,7 @@
       <workItem from="1600350652608" duration="13160000" />
       <workItem from="1600435467256" duration="21214000" />
       <workItem from="1600487690103" duration="41007000" />
-      <workItem from="1600592106574" duration="9855000" />
+      <workItem from="1600592106574" duration="16576000" />
     </task>
     <servers />
   </component>
@@ -299,10 +240,10 @@
       <screen x="37" y="27" width="1563" height="873" />
     </state>
     <state x="482" y="208" key="run.anything.popup/37.27.1563.873@37.27.1563.873" timestamp="1600599905128" />
-    <state x="481" y="212" width="672" height="678" key="search.everywhere.popup" timestamp="1600599773061">
+    <state x="481" y="212" width="672" height="678" key="search.everywhere.popup" timestamp="1600609330602">
       <screen x="37" y="27" width="1563" height="873" />
     </state>
-    <state x="481" y="212" width="672" height="678" key="search.everywhere.popup/37.27.1563.873@37.27.1563.873" timestamp="1600599773061" />
+    <state x="481" y="212" width="672" height="678" key="search.everywhere.popup/37.27.1563.873@37.27.1563.873" timestamp="1600609330602" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

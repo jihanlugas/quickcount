@@ -309,7 +309,114 @@ class StateSeeder extends Seeder
                     [
                         "name" => "Karimun",
                         "subdistricts" => [
-
+                            [
+                                "name" => "Belat",
+                                "villages" => [
+                                    "Toapaya",
+                                    "Toapaya Sari",
+                                    "Toapaya Selatan",
+                                    "Toapaya Utara",
+                                ],
+                            ],
+                            [
+                                "name" => "Buru",
+                                "villages" => [
+                                    "Toapaya",
+                                    "Toapaya Sari",
+                                    "Toapaya Selatan",
+                                    "Toapaya Utara",
+                                ],
+                            ],
+                            [
+                                "name" => "Durai",
+                                "villages" => [
+                                    "Toapaya",
+                                    "Toapaya Sari",
+                                    "Toapaya Selatan",
+                                    "Toapaya Utara",
+                                ],
+                            ],
+                            [
+                                "name" => "Karimun",
+                                "villages" => [
+                                    "Toapaya",
+                                    "Toapaya Sari",
+                                    "Toapaya Selatan",
+                                    "Toapaya Utara",
+                                ],
+                            ],
+                            [
+                                "name" => "Kundur",
+                                "villages" => [
+                                    "Toapaya",
+                                    "Toapaya Sari",
+                                    "Toapaya Selatan",
+                                    "Toapaya Utara",
+                                ],
+                            ],
+                            [
+                                "name" => "Kundur Barat",
+                                "villages" => [
+                                    "Toapaya",
+                                    "Toapaya Sari",
+                                    "Toapaya Selatan",
+                                    "Toapaya Utara",
+                                ],
+                            ],
+                            [
+                                "name" => "Kundur Utara",
+                                "villages" => [
+                                    "Toapaya",
+                                    "Toapaya Sari",
+                                    "Toapaya Selatan",
+                                    "Toapaya Utara",
+                                ],
+                            ],
+                            [
+                                "name" => "Meral",
+                                "villages" => [
+                                    "Toapaya",
+                                    "Toapaya Sari",
+                                    "Toapaya Selatan",
+                                    "Toapaya Utara",
+                                ],
+                            ],
+                            [
+                                "name" => "Meral Barat",
+                                "villages" => [
+                                    "Toapaya",
+                                    "Toapaya Sari",
+                                    "Toapaya Selatan",
+                                    "Toapaya Utara",
+                                ],
+                            ],
+                            [
+                                "name" => "Moro",
+                                "villages" => [
+                                    "Toapaya",
+                                    "Toapaya Sari",
+                                    "Toapaya Selatan",
+                                    "Toapaya Utara",
+                                ],
+                            ],
+                            [
+                                "name" => "Tebing",
+                                "villages" => [
+                                    "Toapaya",
+                                    "Toapaya Sari",
+                                    "Toapaya Selatan",
+                                    "Toapaya Utara",
+                                ],
+                            ],
+                            [
+                                "name" => "Ungar",
+                                "villages" => [
+                                    "Toapaya",
+                                    "Toapaya Sari",
+                                    "Toapaya Selatan",
+                                    "Toapaya Utara",
+                                ],
+                            ],
                         ]
                     ],
                     [
