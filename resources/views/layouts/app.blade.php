@@ -21,6 +21,8 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/flatpickr.css') }}" rel="stylesheet">
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
 </head>
 <body>
 <div id="app">
@@ -46,8 +48,14 @@
                                            class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">TPS</a>
                                         <a href="{{ route('user.index') }}"
                                            class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Anggota</a>
+                                    @else
+                                        <a href="{{ route('vote.index') }}"
+                                           class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Input Suara</a>
                                     @endif
                                 @endguest
+                                <a href="{{ route('perhitungan.index') }}"
+                                   class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Perhitungan Cepat</a>
+
                             </div>
                         </div>
                     </div>
@@ -57,6 +65,8 @@
                                 <div class="ml-10 flex items-baseline">
                                     <a href="{{ route('login') }}"
                                        class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Login</a>
+                                    <a href="{{ route('register') }}"
+                                       class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Register</a>
                                 </div>
                             @else
                                 {{--                                @if(Auth::user()->is_complete)--}}
@@ -136,8 +146,13 @@
                                class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">TPS</a>
                             <a href="{{ route('user.index') }}"
                                class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Anggota</a>
+                        @else
+                            <a href="{{ route('vote.index') }}"
+                               class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Input Suara</a>
                         @endif
                     @endguest
+                    <a href="{{ route('perhitungan.index') }}"
+                       class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Perhitungan Cepat</a>
                 </div>
 
                 <div class="pt-3 pb-3 border-t border-gray-700">
@@ -145,6 +160,10 @@
                         <div class="px-2">
                             <a href="{{ route('login') }}"
                                class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Login</a>
+                        </div>
+                        <div class="px-2">
+                            <a href="{{ route('register') }}"
+                               class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Register</a>
                         </div>
                     @else
                         <div class="flex items-center px-5">
@@ -191,7 +210,7 @@
 
         <header class="bg-white shadow">
             <div class="p-4 max-w-3xl mx-auto">
-                <h1 class="text-3xl font-bold leading-tight text-gray-900">
+                <h1 class="text-2xl font-bold leading-tight text-gray-900">
                     @yield('header')
                 </h1>
             </div>

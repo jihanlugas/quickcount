@@ -28,7 +28,7 @@ class InitialSeeder extends Seeder
             ]);
         }
 
-        foreach (['Presiden', 'Gubernur', 'Walikota', 'Bupati'] as $positions) {
+        foreach (['Presiden', 'Gubernur', 'Bupati', 'Walikota'] as $positions) {
             DB::table('positions')->insert([
                 'name' => $positions,
             ]);

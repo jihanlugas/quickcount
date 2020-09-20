@@ -17,7 +17,7 @@
         <div class="w-full overflow-auto">
             <table class="table-auto text-left w-full">
                 <thead>
-                <tr class="">
+                <tr class="whitespace-no-wrap">
                     <th class="truncate border-b border-t p-4">{{ "Nama" }}</th>
                     <th class="truncate border-b border-t p-4">{{ "Email" }}</th>
                     <th class="truncate border-b border-t p-4">{{ "No. Handphone" }}</th>
@@ -27,12 +27,15 @@
                 </thead>
                 <tbody>
                 @forelse($mUsers as $i => $mUser)
-                    <tr class="<?= $i % 2 == 0 ? 'bg-gray-200' : '' ?>">
+                    <tr class="whitespace-no-wrap <?= $i % 2 == 0 ? 'bg-gray-200' : '' ?>">
                         <td class="px-4 py-2">{{ $mUser->name }}</td>
                         <td class="px-4 py-2">{{ $mUser->email }}</td>
                         <td class="px-4 py-2">{{ $mUser->phone }}</td>
                         <td class="px-4 py-2">{{ $mUser->address }}</td>
                         <td class="px-4 py-2 flex justify-around items-center">
+                            <a href="{{ route('user.tps', ['user' => $mUser->id]) }}"
+                               class="text-gray-100 bg-blue-500 hover:bg-blue-700 mx-2 px-3 py-2  rounded-lg focus:outline-none focus:shadow-outline">
+                                <i class="fas fa-vote-yea"></i></a>
                             <a href="{{ route('user.edit', ['user' => $mUser->id]) }}"
                                class="text-gray-100 bg-yellow-500 hover:bg-yellow-700 mx-2 px-3 py-2  rounded-lg focus:outline-none focus:shadow-outline">
                                 <i class="fas fa-pencil-alt"></i></a>

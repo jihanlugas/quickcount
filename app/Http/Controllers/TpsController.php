@@ -17,8 +17,6 @@ class TpsController extends AdminController
     {
         return Validator::make($data, [
             'name' => ['required'],
-            'subdistrict_id' => ['required', 'numeric'],
-            'village_id' => ['required', 'numeric'],
             'address' => ['required'],
         ]);
     }
@@ -29,37 +27,35 @@ class TpsController extends AdminController
         return view('admin.tps.index', ['mTpss' => $mTpss]);
     }
 
-    public function create(){
-        $mSubdistricts = Subdistrict::all();
-        return view('admin.tps.create', ['mSubdistricts' => $mSubdistricts]);
-    }
+//    public function create(){
+//        $mSubdistricts = Subdistrict::all();
+//        return view('admin.tps.create', ['mSubdistricts' => $mSubdistricts]);
+//    }
 
-    public function store(Request $request){
-        $this->tpsvalidator($request->all())->validate();
-        DB::beginTransaction();
-        try {
-            $mTps = new Tps();
-            $mTps->name = $request->name;
-            $mTps->subdistrict_id = $request->subdistrict_id;
-            $mTps->village_id = $request->village_id;
-            $mTps->address = $request->address;
-            $mTps->save();
-            DB::commit();
-
-            return redirect()->route('tps.index')->with('success', 'Berhasil Menambahkan Tps');
-        } catch (Throwable $e) {
-            DB::rollBack();
-            dd($e);
-        }
-    }
+//    public function store(Request $request){
+//        $this->tpsvalidator($request->all())->validate();
+//        DB::beginTransaction();
+//        try {
+//            $mTps = new Tps();
+//            $mTps->name = $request->name;
+//            $mTps->subdistrict_id = $request->subdistrict_id;
+//            $mTps->village_id = $request->village_id;
+//            $mTps->address = $request->address;
+//            $mTps->save();
+//            DB::commit();
+//
+//            return redirect()->route('tps.index')->with('success', 'Berhasil Menambahkan Tps');
+//        } catch (Throwable $e) {
+//            DB::rollBack();
+//            dd($e);
+//        }
+//    }
 
     public function edit($id)
     {
-        $mSubdistricts = Subdistrict::all();
         $mTps = Tps::findOrFail($id);
         return view('admin.tps.edit', [
             'mTps' => $mTps,
-            'mSubdistricts' => $mSubdistricts,
         ]);
     }
 
@@ -69,8 +65,6 @@ class TpsController extends AdminController
         try {
             $mTps = Tps::findOrFail($id);
             $mTps->name = $request->name;
-            $mTps->subdistrict_id = $request->subdistrict_id;
-            $mTps->village_id = $request->village_id;
             $mTps->address = $request->address;
             $mTps->save();
             DB::commit();

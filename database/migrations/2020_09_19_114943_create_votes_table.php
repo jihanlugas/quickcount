@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTpsTable extends Migration
+class CreateVotesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,20 @@ class CreateTpsTable extends Migration
      */
     public function up()
     {
-        Schema::create('tps', function (Blueprint $table) {
+        Schema::create('votes', function (Blueprint $table) {
             $table->id();
             $table->foreignId('election_id');
             $table->foreignId('province_id');
             $table->foreignId('district_id');
             $table->foreignId('subdistrict_id');
             $table->foreignId('village_id');
-            $table->string('name');
-            $table->string('address', 255);
+            $table->foreignId('tps_id');
+            $table->foreignId('user_id');
+            $table->string('status')->default("1");
+            $table->integer('suara_sah')->default(0);
+            $table->integer('suara_tidak_sah')->default(0);
+            $table->integer('total_suara')->default(0);
+            $table->tinyInteger('has_vote')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });
@@ -34,6 +39,6 @@ class CreateTpsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tps');
+        Schema::dropIfExists('votes');
     }
 }

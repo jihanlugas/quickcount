@@ -19,8 +19,11 @@ class CreateElectionsTable extends Migration
             $table->string("start");
             $table->string("end");
             $table->foreignId("position_id");
-            $table->timestampsTz();
-            $table->softDeletesTz();
+            $table->foreignId("province_id")->nullable();
+            $table->foreignId("district_id")->nullable();
+            $table->foreignId("subdistrict_id")->nullable();
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 
