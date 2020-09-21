@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0a481694-81a2-4bce-8adc-ab86934a99eb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="0a481694-81a2-4bce-8adc-ab86934a99eb" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,6 +13,9 @@
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -136,9 +137,8 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/perhitungan" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -181,6 +181,7 @@
       <workItem from="1600435467256" duration="21214000" />
       <workItem from="1600487690103" duration="41007000" />
       <workItem from="1600592106574" duration="17192000" />
+      <workItem from="1600663579290" duration="303000" />
     </task>
     <servers />
   </component>
@@ -227,9 +228,10 @@
       <screen x="37" y="27" width="1563" height="873" />
     </state>
     <state x="472" y="80" width="683" height="765" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/37.27.1563.873@37.27.1563.873" timestamp="1600267771067" />
-    <state x="524" y="211" width="589" height="560" key="find.popup" timestamp="1600603308386">
-      <screen x="37" y="27" width="1563" height="873" />
+    <state x="-1322" y="221" width="724" height="674" key="find.popup" timestamp="1600663844220">
+      <screen x="-1920" y="0" width="1920" height="1050" />
     </state>
+    <state x="-1322" y="221" width="724" height="674" key="find.popup/-1920.0.1920.1050/0.0.1920.1050@-1920.0.1920.1050" timestamp="1600663844220" />
     <state x="524" y="211" width="589" height="560" key="find.popup/37.27.1563.873@37.27.1563.873" timestamp="1600603308386" />
     <state x="467" y="181" width="700" height="530" key="recent.locations.popup" timestamp="1600181704577">
       <screen x="37" y="27" width="1563" height="873" />
@@ -239,9 +241,10 @@
       <screen x="37" y="27" width="1563" height="873" />
     </state>
     <state x="482" y="208" key="run.anything.popup/37.27.1563.873@37.27.1563.873" timestamp="1600599905128" />
-    <state x="481" y="212" width="672" height="678" key="search.everywhere.popup" timestamp="1600615013338">
-      <screen x="37" y="27" width="1563" height="873" />
+    <state x="-1375" y="223" width="826" height="816" key="search.everywhere.popup" timestamp="1600663712939">
+      <screen x="-1920" y="0" width="1920" height="1050" />
     </state>
+    <state x="-1375" y="223" width="826" height="816" key="search.everywhere.popup/-1920.0.1920.1050/0.0.1920.1050@-1920.0.1920.1050" timestamp="1600663712939" />
     <state x="481" y="212" width="672" height="678" key="search.everywhere.popup/37.27.1563.873@37.27.1563.873" timestamp="1600615013338" />
   </component>
   <component name="XDebuggerManager">
