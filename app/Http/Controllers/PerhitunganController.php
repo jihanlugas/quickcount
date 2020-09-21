@@ -11,7 +11,8 @@ class PerhitunganController extends Controller
 {
     public function index()
     {
-        $mElections = Election::all();
+        $mElections = Election::with('candidates')->get();
+
         return view('perhitungan.index', [
             'mElections' => $mElections,
         ]);
@@ -24,7 +25,6 @@ class PerhitunganController extends Controller
         $mCandidates = Candidate::where('election_id', $mElection->id)
             ->orderBy('nourut', 'ASC')
             ->get();
-
 
         return view('perhitungan.detail', [
             'mElection' => $mElection,

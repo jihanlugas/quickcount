@@ -26,4 +26,9 @@ class Election extends Model
     {
         return $this->belongsTo('App\Peroid', 'end', 'id');
     }
+
+    public function candidates()
+    {
+        return $this->hasMany('App\Candidate');
+    }
 }

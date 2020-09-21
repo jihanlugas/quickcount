@@ -343,7 +343,6 @@
                     url: '{{ route('ajax.getavailabletpss') }}',
                     data: data,
                     success: function (res) {
-                        console.log(res)
                         res.forEach(function (tps) {
                             tTpsOption += `<option value="${tps.id}">${tps.name}</option>`;
                         });

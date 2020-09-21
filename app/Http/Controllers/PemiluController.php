@@ -76,16 +76,10 @@ class PemiluController extends AdminController
     public function store(Request $request)
     {
         $this->pemiluvalidator($request->all())->validate();
+        $mElection = new Election();
         DB::beginTransaction();
         try {
-            $mElection = new Election();
-            $mElection->name = $request->name;
-            $mElection->start = $request->start;
-            $mElection->end = $request->end;
-            $mElection->position_id = $request->position_id;
-            $mElection->province_id = $request->province_id;
-            $mElection->district_id = $request->district_id;
-            $mElection->save();
+            $this->save($mElection, $request);
             DB::commit();
 
             return redirect()->route('pemilu.index')->with('success', 'Berhasil Menambahkan Pemilu');
@@ -110,18 +104,11 @@ class PemiluController extends AdminController
     public function update(Request $request, $id)
     {
         $this->pemiluvalidator($request->all())->validate();
+        $mElection = Election::findOrFail($id);
         DB::beginTransaction();
         try {
-            $mElection = Election::findOrFail($id);
-            $mElection->name = $request->name;
-            $mElection->start = $request->start;
-            $mElection->end = $request->end;
-            $mElection->position_id = $request->position_id;
-            $mElection->province_id = $request->province_id;
-            $mElection->district_id = $request->district_id;
-            $mElection->save();
+            $this->save($mElection, $request);
             DB::commit();
-
             return redirect()->route('pemilu.index')->with('success', 'Berhasil Edit Pemilu');
         } catch (Throwable $e) {
             DB::rollBack();
@@ -220,5 +207,16 @@ class PemiluController extends AdminController
             DB::rollBack();
             dd($e);
         }
+    }
+
+    private function save(Election $mElection, Request $request)
+    {
+        $mElection->name = $request->name;
+        $mElection->start = $request->start;
+        $mElection->end = $request->end;
+        $mElection->position_id = $request->position_id;
+        $mElection->province_id = $request->province_id;
+        $mElection->district_id = $request->district_id;
+        $mElection->save();
     }
 }

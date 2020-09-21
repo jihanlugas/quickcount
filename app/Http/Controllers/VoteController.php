@@ -32,7 +32,6 @@ class VoteController extends MemberController
         return Validator::make($data, [
             'suara_sah' => ['required', 'numeric'],
             'suara_tidak_sah' => ['required', 'numeric'],
-            'total_suara' => ['required', 'numeric'],
             'candidate' => ['required', 'array'],
         ]);
     }
@@ -123,7 +122,7 @@ class VoteController extends MemberController
             $mVote->has_vote = 1;
             $mVote->suara_sah = $request->suara_sah;
             $mVote->suara_tidak_sah = $request->suara_tidak_sah;
-            $mVote->total_suara = $request->total_suara;
+            $mVote->total_suara = $request->suara_sah + $request->suara_tidak_sah;
             $mVote->save();
             foreach ($request->candidates as $candidate => $vote){
                 $mCandidate = Candidate::findOrFail($candidate);

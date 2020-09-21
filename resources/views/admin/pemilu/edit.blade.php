@@ -184,7 +184,6 @@
         var oldProvince = '{{ $mElection->province_id }}';
         var oldDistrict = '{{ $mElection->district_id }}';
 
-        console.log(oldProvince, oldDistrict);
 
 
         $.ajaxSetup({
@@ -213,7 +212,6 @@
             }
             switch (jPosition.val()) {
                 case positionGubernur:
-                    console.log('positionGubernur')
                     cProvince.removeClass('hidden');
                     cDistrict.addClass('hidden');
                     break;
@@ -275,7 +273,6 @@
                 }).done(function () {
                     jDistrict.html(tDistrictOption);
                     if (old){
-                        console.log('old')
                         jDistrict.find(`[value="${oldDistrict}"]`).attr('selected', 'selected');
                     }
                 });

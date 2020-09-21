@@ -116,9 +116,11 @@ class AjaxController extends Controller
                                                 FROM votes
                                                 WHERE votes.deleted_at IS NULL
                                                 AND votes.election_id = :eid
+                                                AND votes.status = :apr
                                                 GROUP BY votes.election_id",
             [
                 'eid' => $mElection->id,
+                'apr' => Vote::VOTE_STATUS_APPROVE_ID,
             ]);
 
 
@@ -128,7 +130,7 @@ class AjaxController extends Controller
                                                 , candidates.wakil
                                                 , SUM(electionvotes.vote) as vote
                                                 FROM candidates
-                                                JOIN electionvotes ON electionvotes.election_id = candidates.election_id
+                                                LEFT JOIN electionvotes ON electionvotes.election_id = candidates.election_id
                                                     AND electionvotes.candidate_id = candidates.id
                                                 WHERE candidates.deleted_at IS NULL
                                                 AND candidates.election_id = :eid
@@ -140,9 +142,8 @@ class AjaxController extends Controller
 
         foreach ($data['candidates'] as $index => $candidate){
             $data['candidates'][$index]->color = $colors[$index];
+            $data['candidates'][$index]->vote = $data['candidates'][$index]->vote ? $data['candidates'][$index]->vote : 0;
         }
-
-
 
         return response()->json($data);
     }

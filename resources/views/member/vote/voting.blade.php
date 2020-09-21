@@ -33,7 +33,7 @@
                     <div class="flex flex-wrap px-2 w-full sm:w-1/3">{{ $mVote->village->name }}</div>
                 </div>
 
-                <div class="flex flex-wrap mb-6 px-2 w-full sm:w-1/3">
+                <div class="flex flex-wrap mb-6 px-2 w-full sm:w-1/2">
                     <label for="suara_sah" class="block text-gray-700 text-sm font-bold mb-2">
                         Jumlah Suara Sah
                     </label>
@@ -48,7 +48,7 @@
                     </p>
                     @enderror
                 </div>
-                <div class="flex flex-wrap mb-6 px-2 w-full sm:w-1/3">
+                <div class="flex flex-wrap mb-6 px-2 w-full sm:w-1/2">
                     <label for="suara_tidak_sah" class="block text-gray-700 text-sm font-bold mb-2">
                         Jumlah Tidak Suara Sah
                     </label>
@@ -59,21 +59,6 @@
                            placeholder="Jumlah Tidak Suara Sah ... "
                            required autofocus>
                     @error('suara_tidak_sah')
-                    <p class="text-red-500 text-xs italic mt-4">
-                        {{ $message }}
-                    </p>
-                    @enderror
-                </div>
-                <div class="flex flex-wrap mb-6 px-2 w-full sm:w-1/3">
-                    <label for="total_suara" class="block text-gray-700 text-sm font-bold mb-2">
-                        Jumlah Suara
-                    </label>
-
-                    <input id="total_suara" type="text"
-                           class="form-input w-full @error('total_suara') border-red-500 @enderror"
-                           name="total_suara" placeholder="Jumlah Suara ... "
-                           required autofocus>
-                    @error('total_suara')
                     <p class="text-red-500 text-xs italic mt-4">
                         {{ $message }}
                     </p>
