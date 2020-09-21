@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0a481694-81a2-4bce-8adc-ab86934a99eb" name="Default Changelist" comment="" />
+    <list default="true" id="0a481694-81a2-4bce-8adc-ab86934a99eb" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AjaxController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AjaxController.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -181,7 +184,7 @@
       <workItem from="1600435467256" duration="21214000" />
       <workItem from="1600487690103" duration="41007000" />
       <workItem from="1600592106574" duration="17192000" />
-      <workItem from="1600663579290" duration="303000" />
+      <workItem from="1600663579290" duration="1334000" />
     </task>
     <servers />
   </component>
@@ -241,10 +244,10 @@
       <screen x="37" y="27" width="1563" height="873" />
     </state>
     <state x="482" y="208" key="run.anything.popup/37.27.1563.873@37.27.1563.873" timestamp="1600599905128" />
-    <state x="-1375" y="223" width="826" height="816" key="search.everywhere.popup" timestamp="1600663712939">
+    <state x="-1375" y="223" width="826" height="816" key="search.everywhere.popup" timestamp="1600664531792">
       <screen x="-1920" y="0" width="1920" height="1050" />
     </state>
-    <state x="-1375" y="223" width="826" height="816" key="search.everywhere.popup/-1920.0.1920.1050/0.0.1920.1050@-1920.0.1920.1050" timestamp="1600663712939" />
+    <state x="-1375" y="223" width="826" height="816" key="search.everywhere.popup/-1920.0.1920.1050/0.0.1920.1050@-1920.0.1920.1050" timestamp="1600664531792" />
     <state x="481" y="212" width="672" height="678" key="search.everywhere.popup/37.27.1563.873@37.27.1563.873" timestamp="1600615013338" />
   </component>
   <component name="XDebuggerManager">

@@ -131,7 +131,8 @@ class AjaxController extends Controller
                                                     AND electionvotes.candidate_id = candidates.id
                                                 WHERE candidates.deleted_at IS NULL
                                                 AND candidates.election_id = :eid
-                                                GROUP BY candidates.id",
+                                                GROUP BY candidates.id, candidates.nourut
+                                                ORDER BY candidates.nourut ASC",
             [
                 'eid' => $mElection->id,
             ]);
