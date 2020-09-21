@@ -123,15 +123,16 @@ class AjaxController extends Controller
 
 
         $data['candidates'] = DB::select("SELECT candidates.nourut
+                                                , candidates.id
                                                 , candidates.ketua
                                                 , candidates.wakil
-                                                , sum(electionvotes.vote) as vote
+                                                , SUM(electionvotes.vote) as vote
                                                 FROM candidates
                                                 JOIN electionvotes ON electionvotes.election_id = candidates.election_id
                                                     AND electionvotes.candidate_id = candidates.id
                                                 WHERE candidates.deleted_at IS NULL
                                                 AND candidates.election_id = :eid
-                                                GROUP BY candidates.id, candidates.nourut
+                                                GROUP BY candidates.id, candidates.nourut, candidates.ketua, candidates.wakil
                                                 ORDER BY candidates.nourut ASC",
             [
                 'eid' => $mElection->id,
