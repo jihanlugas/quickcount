@@ -15,7 +15,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
-class AjaxController extends AdminController
+class AjaxController extends Controller
 {
     public function getelections(Request $request)
     {
