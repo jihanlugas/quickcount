@@ -5,15 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a481694-81a2-4bce-8adc-ab86934a99eb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/database/seeds/ProvinceSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeds/tes" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_15_144319_create_subdistricts_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_15_144319_create_subdistricts_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_15_151635_create_villages_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_15_151635_create_villages_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_18_141955_create_districts_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_18_141955_create_districts_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_18_142001_create_provinces_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_18_142001_create_provinces_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/StateSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/StateSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/ProvinceSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/ProvinceSeeder.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -194,6 +186,7 @@
       <workItem from="1600781503509" duration="3221000" />
       <workItem from="1600789908138" duration="9242000" />
       <workItem from="1600802263668" duration="974000" />
+      <workItem from="1600803501051" duration="40000" />
     </task>
     <servers />
   </component>
