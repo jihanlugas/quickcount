@@ -15,9 +15,11 @@ class CreateSubdistrictsTable extends Migration
     {
         Schema::create('subdistricts', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('province_id');
-            $table->foreignId('district_id');
+            $table->foreignId('country_id')->default(0);
+            $table->foreignId('province_id')->default(0);
+            $table->foreignId('district_id')->default(0);
             $table->string('name');
+            $table->string('code')->default('');
             $table->timestamps();
         });
     }

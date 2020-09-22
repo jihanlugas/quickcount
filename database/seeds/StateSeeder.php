@@ -451,6 +451,24 @@ class StateSeeder extends Seeder
                     ],
                 ],
             ],
+            [
+                "name" => "Jawa Barat",
+                "districts" => [
+                    [
+                        "name" => "Tasikmalaya",
+                        "districts" => []
+                    ],
+                ],
+            ],
+            [
+                "name" => "Banten",
+                "districts" => [
+                    [
+                        "name" => "Pandeglang",
+                        "districts" => []
+                    ],
+                ],
+            ],
         ];
 
 
