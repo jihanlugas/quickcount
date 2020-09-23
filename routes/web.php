@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'PublicController@beranda')->name('beranda');
 Route::get('/beranda', 'PublicController@beranda')->name('beranda');
+//Route::get('/tes', 'PublicController@tes')->name('tes');
 //Route::get('/tentang', 'PublicController@tentang')->name('tentang');
 //Route::get('/petunjuk', 'PublicController@petunjuk')->name('petunjuk');
 //Route::get('/kegiatansosial', 'PublicController@kegiatansosial')->name('kegiatansosial');

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class AcehSeeder extends Seeder
 {
@@ -11,6 +12,6 @@ class AcehSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::insert("");
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class PublicController extends Controller
@@ -35,6 +36,16 @@ class PublicController extends Controller
     {
         return view('kegiatansosial');
     }
+
+//    public function tes()
+//    {
+//        DB::insert("INSERT INTO provinces (name, code)
+//                        SELECT wilayahs.name, wilayahs.code
+//                        FROM wilayahs
+//                        WHERE LENGTH(wilayahs.code) < 5");
+//    }
+
+
 
 
 }

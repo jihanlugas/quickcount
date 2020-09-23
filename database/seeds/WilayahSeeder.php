@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class WilayahSeeder extends Seeder
 {
@@ -11,6 +12,7 @@ class WilayahSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $path = 'database/sql/wilayah.sql';
+        DB::unprepared(file_get_contents($path));
     }
 }

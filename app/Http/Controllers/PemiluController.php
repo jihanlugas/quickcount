@@ -61,15 +61,15 @@ class PemiluController extends AdminController
     {
         $mPeroids = Peroid::all();
         $mPositions = Position::all();
-        $mProvinces = Province::all();
-        $mDistricts = District::all();
-        $mSubdistricts = Subdistrict::all();
+//        $mProvinces = Province::all();
+//        $mDistricts = District::all();
+//        $mSubdistricts = Subdistrict::all();
         return view('admin.pemilu.create', [
             'mPeroids' => $mPeroids,
             'mPositions' => $mPositions,
-            'mProvinces' => $mProvinces,
-            'mDistricts' => $mDistricts,
-            'mSubdistricts' => $mSubdistricts,
+//            'mProvinces' => $mProvinces,
+//            'mDistricts' => $mDistricts,
+//            'mSubdistricts' => $mSubdistricts,
         ]);
     }
 
@@ -135,10 +135,11 @@ class PemiluController extends AdminController
     public function settps($id)
     {
         $mElection = Election::findOrFail($id);
-        $mProvinces = Province::all();
-        $mDistricts = District::all();
-        $mSubdistricts = Subdistrict::all();
-        $mVilages = Village::all();
+
+//        $mProvinces = Province::all();
+//        $mDistricts = District::all();
+//        $mSubdistricts = Subdistrict::all();
+//        $mVilages = Village::all();
 
         return view('admin.pemilu.settps', [
             'mElection' => $mElection,
