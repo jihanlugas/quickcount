@@ -112,7 +112,7 @@ class StateSeeder extends Seeder
         DB::update("UPDATE villages
                         JOIN subdistricts ON villages.code LIKE CONCAT(subdistricts.code, '%')
                         SET villages.subdistrict_id = subdistricts.id
-                        WHERE villages.id BETWEEN 0 AND 20000
+                        WHERE villages.id BETWEEN 10000 AND 20000
                         AND villages.subdistrict_id = 0");
         $time_post = microtime(true);
         $this->command->info("Success 2/9 " . number_format($time_post - $time_pre, 2) . " seconds");
@@ -122,7 +122,7 @@ class StateSeeder extends Seeder
         DB::update("UPDATE villages
                         JOIN subdistricts ON villages.code LIKE CONCAT(subdistricts.code, '%')
                         SET villages.subdistrict_id = subdistricts.id
-                        WHERE villages.id BETWEEN 0 AND 30000
+                        WHERE villages.id BETWEEN 20000 AND 30000
                         AND villages.subdistrict_id = 0");
         $time_post = microtime(true);
         $this->command->info("Success 3/9 " . number_format($time_post - $time_pre, 2) . " seconds");
@@ -132,7 +132,7 @@ class StateSeeder extends Seeder
         DB::update("UPDATE villages
                         JOIN subdistricts ON villages.code LIKE CONCAT(subdistricts.code, '%')
                         SET villages.subdistrict_id = subdistricts.id
-                        WHERE villages.id BETWEEN 0 AND 40000
+                        WHERE villages.id BETWEEN 30000 AND 40000
                         AND villages.subdistrict_id = 0");
         $time_post = microtime(true);
         $this->command->info("Success 4/9 " . number_format($time_post - $time_pre, 2) . " seconds");
@@ -142,7 +142,7 @@ class StateSeeder extends Seeder
         DB::update("UPDATE villages
                         JOIN subdistricts ON villages.code LIKE CONCAT(subdistricts.code, '%')
                         SET villages.subdistrict_id = subdistricts.id
-                        WHERE villages.id BETWEEN 0 AND 50000
+                        WHERE villages.id BETWEEN 40000 AND 50000
                         AND villages.subdistrict_id = 0");
         $time_post = microtime(true);
         $this->command->info("Success 5/9 " . number_format($time_post - $time_pre, 2) . " seconds");
@@ -152,7 +152,7 @@ class StateSeeder extends Seeder
         DB::update("UPDATE villages
                         JOIN subdistricts ON villages.code LIKE CONCAT(subdistricts.code, '%')
                         SET villages.subdistrict_id = subdistricts.id
-                        WHERE villages.id BETWEEN 0 AND 60000
+                        WHERE villages.id BETWEEN 50000 AND 60000
                         AND villages.subdistrict_id = 0");
         $time_post = microtime(true);
         $this->command->info("Success 6/9 " . number_format($time_post - $time_pre, 2) . " seconds");
@@ -162,7 +162,7 @@ class StateSeeder extends Seeder
         DB::update("UPDATE villages
                         JOIN subdistricts ON villages.code LIKE CONCAT(subdistricts.code, '%')
                         SET villages.subdistrict_id = subdistricts.id
-                        WHERE villages.id BETWEEN 0 AND 70000
+                        WHERE villages.id BETWEEN 60000 AND 70000
                         AND villages.subdistrict_id = 0");
         $time_post = microtime(true);
         $this->command->info("Success 7/9 " . number_format($time_post - $time_pre, 2) . " seconds");
@@ -172,7 +172,7 @@ class StateSeeder extends Seeder
         DB::update("UPDATE villages
                         JOIN subdistricts ON villages.code LIKE CONCAT(subdistricts.code, '%')
                         SET villages.subdistrict_id = subdistricts.id
-                        WHERE villages.id BETWEEN 0 AND 80000
+                        WHERE villages.id BETWEEN 70000 AND 80000
                         AND villages.subdistrict_id = 0");
         $time_post = microtime(true);
         $this->command->info("Success 8/9 " . number_format($time_post - $time_pre, 2) . " seconds");
@@ -182,7 +182,7 @@ class StateSeeder extends Seeder
         DB::update("UPDATE villages
                         JOIN subdistricts ON villages.code LIKE CONCAT(subdistricts.code, '%')
                         SET villages.subdistrict_id = subdistricts.id
-                        WHERE villages.id BETWEEN 0 AND 90000
+                        WHERE villages.id BETWEEN 80000 AND 90000
                         AND villages.subdistrict_id = 0");
         $time_post = microtime(true);
         $this->command->info("Success 9/9 " . number_format($time_post - $time_pre, 2) . " seconds");
