@@ -98,11 +98,93 @@ class StateSeeder extends Seeder
         $this->command->info("Success " . number_format($time_post - $time_pre, 2) . " seconds");
 
         $time_pre = microtime(true);
-        $this->command->info('Update villages.subdistrict_id ...');
+        $this->command->info('Update villages.subdistrict_id 1/9 ...');
         DB::update("UPDATE villages
                         JOIN subdistricts ON villages.code LIKE CONCAT(subdistricts.code, '%')
-                        SET villages.subdistrict_id = subdistricts.id");
+                        SET villages.subdistrict_id = subdistricts.id
+                        WHERE villages.id BETWEEN 0 AND 10000
+                        AND villages.subdistrict_id = 0");
         $time_post = microtime(true);
-        $this->command->info("Success " . number_format($time_post - $time_pre, 2) . " seconds");
+        $this->command->info("Success 1/9 " . number_format($time_post - $time_pre, 2) . " seconds");
+
+        $time_pre = microtime(true);
+        $this->command->info('Update villages.subdistrict_id 2/9 ...');
+        DB::update("UPDATE villages
+                        JOIN subdistricts ON villages.code LIKE CONCAT(subdistricts.code, '%')
+                        SET villages.subdistrict_id = subdistricts.id
+                        WHERE villages.id BETWEEN 0 AND 20000
+                        AND villages.subdistrict_id = 0");
+        $time_post = microtime(true);
+        $this->command->info("Success 2/9 " . number_format($time_post - $time_pre, 2) . " seconds");
+
+        $time_pre = microtime(true);
+        $this->command->info('Update villages.subdistrict_id 3/9 ...');
+        DB::update("UPDATE villages
+                        JOIN subdistricts ON villages.code LIKE CONCAT(subdistricts.code, '%')
+                        SET villages.subdistrict_id = subdistricts.id
+                        WHERE villages.id BETWEEN 0 AND 30000
+                        AND villages.subdistrict_id = 0");
+        $time_post = microtime(true);
+        $this->command->info("Success 3/9 " . number_format($time_post - $time_pre, 2) . " seconds");
+
+        $time_pre = microtime(true);
+        $this->command->info('Update villages.subdistrict_id 4/9 ...');
+        DB::update("UPDATE villages
+                        JOIN subdistricts ON villages.code LIKE CONCAT(subdistricts.code, '%')
+                        SET villages.subdistrict_id = subdistricts.id
+                        WHERE villages.id BETWEEN 0 AND 40000
+                        AND villages.subdistrict_id = 0");
+        $time_post = microtime(true);
+        $this->command->info("Success 4/9 " . number_format($time_post - $time_pre, 2) . " seconds");
+
+        $time_pre = microtime(true);
+        $this->command->info('Update villages.subdistrict_id 5/9 ...');
+        DB::update("UPDATE villages
+                        JOIN subdistricts ON villages.code LIKE CONCAT(subdistricts.code, '%')
+                        SET villages.subdistrict_id = subdistricts.id
+                        WHERE villages.id BETWEEN 0 AND 50000
+                        AND villages.subdistrict_id = 0");
+        $time_post = microtime(true);
+        $this->command->info("Success 5/9 " . number_format($time_post - $time_pre, 2) . " seconds");
+
+        $time_pre = microtime(true);
+        $this->command->info('Update villages.subdistrict_id 6/9 ...');
+        DB::update("UPDATE villages
+                        JOIN subdistricts ON villages.code LIKE CONCAT(subdistricts.code, '%')
+                        SET villages.subdistrict_id = subdistricts.id
+                        WHERE villages.id BETWEEN 0 AND 60000
+                        AND villages.subdistrict_id = 0");
+        $time_post = microtime(true);
+        $this->command->info("Success 6/9 " . number_format($time_post - $time_pre, 2) . " seconds");
+
+        $time_pre = microtime(true);
+        $this->command->info('Update villages.subdistrict_id 7/9 ...');
+        DB::update("UPDATE villages
+                        JOIN subdistricts ON villages.code LIKE CONCAT(subdistricts.code, '%')
+                        SET villages.subdistrict_id = subdistricts.id
+                        WHERE villages.id BETWEEN 0 AND 70000
+                        AND villages.subdistrict_id = 0");
+        $time_post = microtime(true);
+        $this->command->info("Success 7/9 " . number_format($time_post - $time_pre, 2) . " seconds");
+
+        $time_pre = microtime(true);
+        $this->command->info('Update villages.subdistrict_id 8/9 ...');
+        DB::update("UPDATE villages
+                        JOIN subdistricts ON villages.code LIKE CONCAT(subdistricts.code, '%')
+                        SET villages.subdistrict_id = subdistricts.id
+                        WHERE villages.id BETWEEN 0 AND 80000
+                        AND villages.subdistrict_id = 0");
+        $time_post = microtime(true);
+        $this->command->info("Success 8/9 " . number_format($time_post - $time_pre, 2) . " seconds");
+
+        $time_pre = microtime(true);
+        $this->command->info('Update villages.subdistrict_id 9/9 ...');
+        DB::update("UPDATE villages
+                        JOIN subdistricts ON villages.code LIKE CONCAT(subdistricts.code, '%')
+                        SET villages.subdistrict_id = subdistricts.id
+                        WHERE villages.id BETWEEN 0 AND 90000
+                        AND villages.subdistrict_id = 0");
+        $time_post = microtime(true);
+        $this->command->info("Success 9/9 " . number_format($time_post - $time_pre, 2) . " seconds");
     }
 }
