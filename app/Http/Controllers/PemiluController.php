@@ -26,12 +26,20 @@ class PemiluController extends AdminController
             'position_id' => ['required'],
         ]);
 
+//        $validator->sometimes('province_id', 'required|numeric', function ($input) {
+//            return $input->position_id >= Position::POSSITION_PRESIDENT_ID;
+//        });
+
         $validator->sometimes('province_id', 'required|numeric', function ($input) {
             return $input->position_id >= Position::POSSITION_GUBERNUR_ID;
         });
 
         $validator->sometimes('district_id', 'required|numeric', function ($input) {
-            return $input->position_id >= Position::POSSITION_BUPATI_ID;
+            return $input->position_id == Position::POSSITION_BUPATI_ID;
+        });
+
+        $validator->sometimes('district_id', 'required|numeric', function ($input) {
+            return $input->position_id == Position::POSSITION_WALIKOTA_ID;
         });
 
         return $validator;

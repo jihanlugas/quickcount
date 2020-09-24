@@ -169,8 +169,10 @@
 
 @push('script')
     <script>
+        const positionPresident = '{{ \App\Position::POSSITION_PRESIDENT_ID }}';
         const positionGubernur = '{{ \App\Position::POSSITION_GUBERNUR_ID }}';
         const positionBupati = '{{ \App\Position::POSSITION_BUPATI_ID }}';
+        const positionWalikota = '{{ \App\Position::POSSITION_WALIKOTA_ID }}';
 
         var cPosition = $('.Container_position');
         var cProvince = $('.Container_province');
@@ -208,11 +210,19 @@
                 getdistricts()
             }
             switch (jPosition.val()) {
+                case positionPresident:
+                    cProvince.addClass('hidden');
+                    cDistrict.addClass('hidden');
+                    break;
                 case positionGubernur:
                     cProvince.removeClass('hidden');
                     cDistrict.addClass('hidden');
                     break;
                 case positionBupati:
+                    cProvince.removeClass('hidden');
+                    cDistrict.removeClass('hidden');
+                    break;
+                case positionWalikota:
                     cProvince.removeClass('hidden');
                     cDistrict.removeClass('hidden');
                     break;

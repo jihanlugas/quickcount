@@ -84,43 +84,45 @@
                         let candidates = res.candidates;
                         let vote = res.vote;
 
-                        let dataCandidate = candidates.map(function (candidate) {
-                            return candidate['ketua'] + ' - ' + candidate['wakil'];
-                        })
-                        dataCandidate.push('Golput');
+                        if(candidates && vote) {
+                            let dataCandidate = candidates.map(function (candidate) {
+                                return candidate['ketua'] + ' - ' + candidate['wakil'];
+                            })
+                            dataCandidate.push('Golput');
 
-                        let dataColor = candidates.map(function (candidate) {
-                            return candidate['color'];
-                        })
+                            let dataColor = candidates.map(function (candidate) {
+                                return candidate['color'];
+                            })
 
-                        let dataVote = candidates.map(function (candidate, index) {
-                            jContainer.find(`.candidate_${index}`).text('Total Suara : ' + candidate['vote'])
-                            return candidate['vote'];
-                        })
-                        dataVote.push(vote.suara_tidak_sah)
+                            let dataVote = candidates.map(function (candidate, index) {
+                                jContainer.find(`.candidate_${index}`).text('Total Suara : ' + candidate['vote'])
+                                return candidate['vote'];
+                            })
+                            dataVote.push(vote.suara_tidak_sah)
 
-                        jContainer.find('.suara_sah').text(vote.suara_sah);
-                        jContainer.find('.suara_tidak_sah').text(vote.suara_tidak_sah);
-                        jContainer.find('.total_suara').text(vote.total_suara);
-                        jContainer.find('.has_vote').text(vote.has_vote);
-                        jContainer.find('.total_tps').text(vote.total_tps);
+                            jContainer.find('.suara_sah').text(vote.suara_sah);
+                            jContainer.find('.suara_tidak_sah').text(vote.suara_tidak_sah);
+                            jContainer.find('.total_suara').text(vote.total_suara);
+                            jContainer.find('.has_vote').text(vote.has_vote);
+                            jContainer.find('.total_tps').text(vote.total_tps);
 
 
-                        var ctx = document.getElementById('myChart').getContext('2d');
-                        var chart = new Chart(ctx, {
-                            type: 'doughnut',
+                            var ctx = document.getElementById('myChart').getContext('2d');
+                            var chart = new Chart(ctx, {
+                                type: 'doughnut',
 
-                            data: {
-                                labels: dataCandidate,
-                                datasets: [{
-                                    backgroundColor: dataColor,
-                                    borderColor: '#2d3748',
-                                    data: dataVote
-                                }]
-                            },
+                                data: {
+                                    labels: dataCandidate,
+                                    datasets: [{
+                                        backgroundColor: dataColor,
+                                        borderColor: '#2d3748',
+                                        data: dataVote
+                                    }]
+                                },
 
-                            options: {}
-                        });
+                                options: {}
+                            });
+                        }
                     }
                 }
             }).done(function () {

@@ -19,6 +19,7 @@ class CreateCandidatesTable extends Migration
             $table->string('ketua');
             $table->string('wakil');
             $table->string('nourut');
+            $table->foreignId('photo_id')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });
