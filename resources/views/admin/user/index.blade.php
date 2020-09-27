@@ -1,17 +1,17 @@
 @extends('layouts.app')
 
-@section('header', 'Anggota')
+@section('header', 'Relawan')
 
 @section('content')
     <div class="py-6 px-4 max-w-3xl mx-auto">
         @include('layouts.flash')
         <div class="w-full flex justify-between items-center mb-4">
             <div class="font-bold text-xl">
-                {{ "Data Anggota"}}
+                {{ "Data Relawan"}}
             </div>
             <a href="{{ route('user.create') }}"
                class="bg-blue-500 hover:bg-blue-700 text-gray-100 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                Tambah Anggota
+                Tambah Relawan
             </a>
         </div>
         <div class="w-full overflow-auto">

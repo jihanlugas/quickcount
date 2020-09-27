@@ -9,9 +9,11 @@ use App\Position;
 use App\Province;
 use App\District;
 use App\Subdistrict;
+use App\User;
 use App\Village;
 use App\Vote;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
@@ -146,6 +148,46 @@ class AjaxController extends Controller
         }
 
         return response()->json($data);
+    }
+
+    public function getusertps(Request $request)
+    {
+        $mUser = User::findOrFail(Auth::user()->id)->first();
+        if($mUser){
+            $qTpss = DB::select("SELECT tps.id
+                                        , tps.name
+                                        , tps.address
+                                        FROM tps
+                                        JOIN votes on tps.id = votes.tps_id
+                                            AND votes.deleted_at IS NULL
+                                            AND votes.user_id = :uid
+                                        WHERE tps.deleted_at IS NULL
+                                        AND votes.election_id = :eid
+                                        AND votes.village_id = :vid");
+
+            if (count($qTpss) > 0){
+                return response()->json($qTpss);
+            }else{
+                return false;
+            }
+        }else{
+            return false;
+        }
+//        $qTpss = DB::select("SELECT tps.id , tps.name
+//                                    FROM tps
+//                                    LEFT JOIN votes ON votes.tps_id = tps.id
+//                                        AND votes.status <= :vsa
+//                                        AND votes.deleted_at IS NULL
+//                                    WHERE tps.election_id = :eid
+//                                    AND votes.id IS NULL
+//                                    AND tps.deleted_at IS NULL
+//                                    AND tps.village_id = :vid", [
+//            'vsa' => Vote::VOTE_STATUS_APPROVE_ID,
+//            'eid' => $request->election_id,
+//            'vid' => $request->village_id,
+//        ]);
+//
+//        return response()->json($qTpss);
     }
 
 }

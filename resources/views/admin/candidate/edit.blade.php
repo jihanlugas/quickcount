@@ -5,7 +5,7 @@
 @section('content')
     <div class="py-6 px-4 max-w-3xl mx-auto">
         @include('layouts.flash')
-        <form method="POST" action="{{ route('candidate.update', ['pemilu' => $mElection->id, 'candidate' => $mCandidate->id]) }}">
+        <form method="POST" action="{{ route('candidate.update', ['pemilu' => $mElection->id, 'candidate' => $mCandidate->id]) }}" enctype="multipart/form-data">
             @method('PUT')
             @csrf
             <input type="hidden" name="election_id" value="{{ $mElection->id }}">
@@ -61,6 +61,35 @@
                     </p>
                     @enderror
                 </div>
+
+                <div class="flex flex-wrap mb-6 px-2 ">
+                    <label for="ketua" class="block text-gray-700 text-sm font-bold mb-2 ">
+                        Foto Kandidat
+                    </label>
+                    <div class="w-full Photo_container">
+                        <img class="w-full max-w-xs shadow-lg btnInputimage"
+                             src="{{ $mCandidate->photo ? asset($mCandidate->photo) : asset('img/default-user.png') }}"
+                             alt="">
+                        <input type="file" name="photo_id" class="hidden inputImage">
+                    </div>
+
+                    <div class="flex flex-col mt-4">
+                        @error('photo_id')
+                        <p class="text-red-500 text-xs italic w-full">
+                            {{ $message }}
+                        </p>
+                        @enderror
+                        <p class="text-red-500 text-xs italic w-full">
+                            * Ukuran Maksimal {{ \App\Photoupload::FILE_SIZE_MAX / 1024 }} MB
+                        </p>
+
+                        <p class="text-red-500 text-xs italic w-full">
+                            ** Tipe File jpeg,png,jpg
+                        </p>
+
+                    </div>
+                </div>
+
                 <div class="flex flex-wrap items-center justify-end">
                     <button type="submit"
                             class="bg-blue-500 hover:bg-blue-700 text-gray-100 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
@@ -70,5 +99,31 @@
             </div>
         </form>
     </div>
-
 @endsection
+
+@push('script')
+    <script>
+        var jPhotoContainer = $('.Photo_container');
+        var jInputImage = $('.btnInputimage');
+        $(document).ready(function () {
+            $('.btnInputimage').click(function () {
+                $(this).closest('.Photo_container').find('input').click();
+            });
+
+            $('.inputImage').change(function () {
+                readURL(this);
+            })
+
+            function readURL(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        jInputImage.attr('src', e.target.result);
+                    }
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+        })
+    </script>
+@endpush
+

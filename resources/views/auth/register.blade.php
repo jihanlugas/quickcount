@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('header', 'Register')
+@section('header', 'Register Relawan')
 @section('content')
     <div class="py-6 px-4 max-w-3xl mx-auto">
         <form class="" method="POST" action="{{ route('register') }}">

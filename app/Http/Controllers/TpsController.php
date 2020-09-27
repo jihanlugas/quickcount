@@ -23,7 +23,8 @@ class TpsController extends AdminController
 
     public function index()
     {
-        $mTpss = Tps::all();
+        $mTpss = Tps::simplePaginate(10);
+//        dd($mTpss);
         return view('admin.tps.index', ['mTpss' => $mTpss]);
     }
 

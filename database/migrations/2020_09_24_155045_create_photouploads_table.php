@@ -17,14 +17,16 @@ class CreatePhotouploadsTable extends Migration
             $table->id();
             $table->foreignId('ref_type');
             $table->foreignId('ref_id');
-            $table->string('file_path');
-            $table->string('folder_name');
-            $table->string('file_name');
-            $table->string('alt_file');
-            $table->string('ext_file');
-            $table->integer('size');
-            $table->integer('width');
-            $table->integer('height');
+            $table->string('file_path')->default("");
+            $table->string('file_path_resize')->default("");
+            $table->string('folder_name')->default("");
+            $table->string('file_name')->default("");
+            $table->string('alt_file')->default("");
+            $table->string('ext_file')->default("");
+            $table->integer('size')->default(0);
+            $table->integer('width')->default(0);
+            $table->integer('height')->default(0);
+
             $table->timestamps();
         });
     }

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('header', 'Edit Anggota')
+@section('header', 'Edit Relawan')
 
 @section('content')
     <div class="py-6 px-4 max-w-3xl mx-auto">
@@ -11,11 +11,11 @@
             <div class="mb-4 -mx-2">
                 <div class="flex flex-wrap mb-6 px-2">
                     <label for="name" class="block text-gray-700 text-sm font-bold mb-2">
-                        Nama Anggota
+                        Nama Relawan
                     </label>
                     <input id="name" type="text"
                            class="form-input w-full @error('name') border-red-500 @enderror"
-                           name="name" value="{{ $mUser->name }}" placeholder="Nama Anggota ... " required autofocus>
+                           name="name" value="{{ $mUser->name }}" placeholder="Nama Relawan ... " required autofocus>
                     @error('name')
                     <p class="text-red-500 text-xs italic mt-4">
                         {{ $message }}

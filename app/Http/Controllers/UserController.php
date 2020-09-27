@@ -55,7 +55,7 @@ class UserController extends AdminController
             $mUser->save();
             DB::commit();
 
-            return redirect()->route('user.index')->with('success', 'Berhasil Menambahkan Anggota');
+            return redirect()->route('user.index')->with('success', 'Berhasil Menambahkan Relawan');
         } catch (Throwable $e) {
             DB::rollBack();
             dd($e);
@@ -133,7 +133,7 @@ class UserController extends AdminController
                 dd($e);
             }
         }else{
-            return redirect()->route('user.tps', ['user' => $mUser->id])->with('danger', 'Anggota Tidak Memilih TPS tersebut');
+            return redirect()->route('user.tps', ['user' => $mUser->id])->with('danger', 'Relawan Tidak Memilih TPS tersebut');
         }
     }
 
@@ -152,7 +152,7 @@ class UserController extends AdminController
                 dd($e);
             }
         }else{
-            return redirect()->route('user.tps', ['user' => $mUser->id])->with('danger', 'Anggota Tidak Memilih TPS tersebut');
+            return redirect()->route('user.tps', ['user' => $mUser->id])->with('danger', 'Relawan Tidak Memilih TPS tersebut');
         }
     }
 

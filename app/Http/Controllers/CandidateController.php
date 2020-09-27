@@ -6,8 +6,11 @@ use App\Election;
 use App\Candidate;
 use App\Peroid;
 use App\Position;
+use App\Photoupload;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
 
 class CandidateController extends AdminController
@@ -15,10 +18,11 @@ class CandidateController extends AdminController
     protected function candidatevalidator(array $data)
     {
         return Validator::make($data, [
-            'election_id' => ['required', 'numeric'],
-            'ketua' => ['required'],
-            'wakil' => ['required'],
-            'nourut' => ['required', 'numeric'],
+            "election_id" => ["required", "numeric"],
+            "ketua" => ["required"],
+            "wakil" => ["required"],
+            "nourut" => ["required", "numeric"],
+            "photo_id" => ["image", "mimes:jpeg,png,jpg", "max:" . Photoupload::FILE_SIZE_MAX],
         ]);
     }
 
@@ -54,6 +58,13 @@ class CandidateController extends AdminController
                 $mCandidate->wakil = $request->wakil;
                 $mCandidate->nourut = $request->nourut;
                 $mCandidate->save();
+
+                if ($request->photo_id){
+                    $photo_id = Photoupload::uploadPhoto($request->photo_id, $mCandidate->id, Photoupload::REF_TYPE_TABLE_CANDIDATES, $mCandidate->id);
+                    $mCandidate->photo_id = $photo_id;
+                    $mCandidate->save();
+                }
+
                 DB::commit();
 
                 return redirect()->route('candidate.index', ['pemilu' => $id])->with('success', 'Berhasil Menambahkan Kandidat');
@@ -70,6 +81,7 @@ class CandidateController extends AdminController
     {
         $mElection = Election::findOrFail($election_id);
         $mCandidate = Candidate::findOrFail($id);
+        $mCandidate->photo = Photoupload::getFilepathOrigin($mCandidate->photo_id);
         return view('admin.candidate.edit', [
             'mElection' => $mElection,
             'mCandidate' => $mCandidate,
@@ -88,6 +100,15 @@ class CandidateController extends AdminController
             $mCandidate->nourut = $request->nourut;
             $mCandidate->save();
             DB::commit();
+
+            if ($request->photo_id){
+                if ($mCandidate->photo_id){
+                    Photoupload::deletePhoto($mCandidate->photo_id);
+                }
+                $photo_id = Photoupload::uploadPhoto($request->photo_id, $mCandidate->id, Photoupload::REF_TYPE_TABLE_CANDIDATES, $mCandidate->id);
+                $mCandidate->photo_id = $photo_id;
+                $mCandidate->save();
+            }
 
             return redirect()->route('candidate.index', ['pemilu' => $election_id])->with('success', 'Berhasil Edit Kandidat');
         } catch (Throwable $e) {

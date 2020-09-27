@@ -26,8 +26,8 @@ class Uploadinc extends Model
 
                 $mUploadinc = $mUploadincnew;
 
-                Storage::makeDirectory($mUploadinc->folder_name);
-//                Storage::makeDirectory($mUploadinc->folder_name . '/' . self::FILE_DIRECTORY_RESIZE);
+                Storage::makeDirectory($mUploadinc->folder_name, $mode = 0777);
+                Storage::makeDirectory($mUploadinc->folder_name . '/' . self::FILE_DIRECTORY_RESIZE, $mode = 0777);
             }
         }else{
             $mUploadinc = New Uploadinc();
@@ -37,8 +37,8 @@ class Uploadinc extends Model
             $mUploadinc->running = 0;
             $mUploadinc->save();
 
-            Storage::makeDirectory($mUploadinc->folder_name);
-//            Storage::makeDirectory($mUploadinc->folder_name . '/' . self::FILE_DIRECTORY_RESIZE);
+            Storage::makeDirectory($mUploadinc->folder_name, $mode = 0777);
+            Storage::makeDirectory($mUploadinc->folder_name . '/' . self::FILE_DIRECTORY_RESIZE, $mode = 0777);
         }
 
         return $mUploadinc;

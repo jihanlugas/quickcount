@@ -140,18 +140,18 @@
             });
         })
 
-        function onload() {
-            switch (mPosition) {
-                case positionGubernur:
-
-                    break;
-                case positionBupati:
-
-                    break;
-                default:
-            }
-
-        }
+        // function onload() {
+        //     switch (mPosition) {
+        //         case positionGubernur:
+        //
+        //             break;
+        //         case positionBupati:
+        //
+        //             break;
+        //         default:
+        //     }
+        //
+        // }
 
         function getprovinces(value = '') {
             var tProvinceOption = `<option value="">Pilih Provinsi</option>`;

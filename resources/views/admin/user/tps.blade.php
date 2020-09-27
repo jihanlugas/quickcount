@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('header', 'Anggota - TPS')
+@section('header', 'Relawan - TPS')
 
 @section('content')
     <div class="py-6 px-4 max-w-3xl mx-auto">
