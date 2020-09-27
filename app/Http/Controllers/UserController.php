@@ -33,7 +33,7 @@ class UserController extends AdminController
 
     public function index()
     {
-        $mUsers = User::where('role_id', '!=', 1)->get();
+        $mUsers = User::where('role_id', '!=', 1)->paginate(10);
         return view('admin.user.index', ['mUsers' => $mUsers]);
     }
 

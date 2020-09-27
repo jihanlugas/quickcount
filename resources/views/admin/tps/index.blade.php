@@ -189,7 +189,7 @@
 {{--            </div>--}}
 {{--            {{ $mTpss->links('layouts.partial.pagination') }}--}}
 {{--        </div>--}}
-
+        {{ $mTpss->links('vendor.pagination.tailwind') }}
     </div>
 @endsection
 

@@ -5,35 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a481694-81a2-4bce-8adc-ab86934a99eb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/img/default-photo.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layouts/partial/pagination.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/quickcount.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/quickcount.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/vendor/pagination/bootstrap-4.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/vendor/pagination/default.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/vendor/pagination/semantic-ui.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/vendor/pagination/simple-bootstrap-4.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/vendor/pagination/simple-default.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/vendor/pagination/simple-tailwind.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/vendor/pagination/tailwind.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AjaxController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AjaxController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CandidateController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CandidateController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PemiluController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PemiluController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TpsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TpsController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Photoupload.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Photoupload.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Uploadinc.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Uploadinc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/filesystems.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/filesystems.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_24_155045_create_photouploads_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_24_155045_create_photouploads_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/candidate/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/candidate/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/candidate/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/candidate/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/pemilu/settps.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/pemilu/settps.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/tps/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/tps/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/user/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/user/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/user/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/user/edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/user/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/user/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/user/tps.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/user/tps.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/app/public/.gitignore" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -223,7 +206,7 @@
       <workItem from="1600959554445" duration="33000" />
       <workItem from="1600960716778" duration="7271000" />
       <workItem from="1601040296908" duration="16229000" />
-      <workItem from="1601173356585" duration="18367000" />
+      <workItem from="1601173356585" duration="20198000" />
     </task>
     <servers />
   </component>
@@ -294,10 +277,10 @@
       <screen x="37" y="27" width="1563" height="873" />
     </state>
     <state x="482" y="208" key="run.anything.popup/37.27.1563.873@37.27.1563.873" timestamp="1600599905128" />
-    <state x="481" y="212" width="672" height="678" key="search.everywhere.popup" timestamp="1601216075747">
+    <state x="481" y="212" width="672" height="678" key="search.everywhere.popup" timestamp="1601220214792">
       <screen x="37" y="27" width="1563" height="873" />
     </state>
-    <state x="481" y="212" width="672" height="678" key="search.everywhere.popup/37.27.1563.873@37.27.1563.873" timestamp="1601216075747" />
+    <state x="481" y="212" width="672" height="678" key="search.everywhere.popup/37.27.1563.873@37.27.1563.873" timestamp="1601220214792" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
