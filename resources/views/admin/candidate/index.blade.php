@@ -14,46 +14,96 @@
                 Tambah Kandidat
             </a>
         </div>
-        <div class="w-full overflow-auto">
-            <table class="table-auto text-left w-full">
-                <thead>
-                <tr class="">
-                    <th class="truncate border-b border-t p-4">{{ "No Urut" }}</th>
-                    <th class="truncate border-b border-t p-4">{{ "Nama Kandidat" }}</th>
-                    <th class="truncate border-b border-t p-4">{{ "Nama Wakil Kandidat" }}</th>
-                    <th class="truncate border-b border-t p-4">{{ "Action" }}</th>
-                </tr>
-                </thead>
-                <tbody>
-                @forelse($mCandidates as $i => $mCandidate)
-                    <tr class="<?= $i % 2 == 0 ? 'bg-gray-200' : '' ?>">
-                        <td class="px-4 py-2">{{ $mCandidate->nourut }}</td>
-                        <td class="px-4 py-2">{{ $mCandidate->ketua }}</td>
-                        <td class="px-4 py-2">{{ $mCandidate->wakil }}</td>
-                        <td class="px-4 py-2 flex justify-around items-center">
-                            <a href="{{ route('candidate.edit', ['pemilu' => $mElection->id ,'candidate' => $mCandidate->id]) }}"
-                               class="text-gray-100 bg-yellow-500 hover:bg-yellow-700 mx-2 px-3 py-2 rounded-lg focus:outline-none focus:shadow-outline">
-                                <i class="fas fa-pencil-alt"></i></a>
-                            <form
-                                action="{{ route('candidate.destroy', ['pemilu' => $mElection->id ,'candidate' => $mCandidate->id]) }}"
-                                method="post">
-                                @csrf
-                                @method('delete')
-                                <button type="submit"
-                                        class="text-gray-100 bg-red-500 hover:bg-red-700 mx-2 px-3 py-2 rounded-lg focus:outline-none focus:shadow-outline">
-                                    <i class="fas fa-trash"></i>
-                                </button>
-                            </form>
-                        </td>
-                    </tr>
-                @empty
-                    <tr class="bg-gray-100 text-center">
-                        <td class="border-b px-4 py-2" colspan="4">Nodata</td>
-                    </tr>
-                @endforelse
-                </tbody>
-            </table>
+        <div class="flex flex-wrap -mx-3">
+            @forelse($mCandidates as $i => $mCandidate)
+                <div class="flex flex-wrap mb-4 w-full sm:w-1/2 md:w-1/3 Photo_container px-3">
+                    <div class="w-full bg-white shadow-xl rounded-lg overflow-hidden">
+                        <img class="w-full btnInputimage" data-candidateid="{{ $mCandidate->id }}"
+                             src="{{ $mCandidate->photo_id ? \App\Photoupload::getFilepathOrigin($mCandidate->photo_id) : asset('img/default-user.png') }}"
+                             alt="">
+                        <input type="file" name="photo_id" class="hidden inputImage" data-candidateid="{{ $mCandidate->id }}">
+                        <div class="w-full p-3">
+                            <div class="flex justify-between">
+                                <div class="">No Urut</div>
+                                <div class="">{{ $mCandidate->nourut }}</div>
+                            </div>
+                            <div class="flex justify-between">
+                                <div class="">Ketua</div>
+                                <div class="">{{ $mCandidate->ketua }}</div>
+                            </div>
+                            <div class="flex justify-between">
+                                <div class="">Wakil</div>
+                                <div class="">{{ $mCandidate->wakil }}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @empty
+            @endforelse
         </div>
-
     </div>
+    @include('layouts.modal.uploadphoto')
 @endsection
+
+@push('script')
+    <script>
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        var inputImage = $('.inputImage');
+        var btnInputimage = $('.btnInputimage');
+
+        $(document).ready(function () {
+            btnInputimage.click(function () {
+                $(this).closest('.Photo_container').find('.inputImage').click();
+            });
+
+            $('.inputImage').change(function () {
+                let candidateId = $(this).data('candidateid');
+                if (this.files && this.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        resize.croppie('bind', {
+                            url: e.target.result
+                        })
+                        uploadPhoto.data('candidateid', candidateId)
+                        uploadPhoto.modal('show');
+                    }
+                    reader.readAsDataURL(this.files[0]);
+                }
+            })
+
+            uploadPhoto.data("onsave", function (img) {
+                var formData = new FormData();
+                let candidateId = uploadPhoto.data('candidateid')
+                formData.append('photo_id', img, "tmpcropp.png");
+                formData.append('candidate_id', candidateId);
+
+                $.ajax({
+                    url: "{{ route('ajax.uploadphotocandidate') }}",
+                    type: "POST",
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    dataType: "json",
+                    success: function (res) {
+                        if (res.status){
+                            btnInputimage.each(function (index, image){
+                                if ($(image).data('candidateid') == res.candidate_id){
+                                    $(image).attr('src', res.photo);
+                                }
+                            });
+                        }
+                    }
+                }).done(function (){
+                    uploadPhoto.modal('hide');
+                });
+
+            })
+        });
+    </script>
+@endpush

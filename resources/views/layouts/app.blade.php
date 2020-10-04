@@ -10,7 +10,6 @@
     <title>{{ config('app.name', 'Wow') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
             integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <!-- Fonts -->
@@ -21,7 +20,12 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/flatpickr.css') }}" rel="stylesheet">
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.2/croppie.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.2/croppie.js"></script>
+
+    <script src="{{ asset('js/app.js') }}" defer></script>
+    {{--    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>--}}
 
 </head>
 <body>
@@ -50,11 +54,13 @@
                                            class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Relawan</a>
                                     @else
                                         <a href="{{ route('vote.index') }}"
-                                           class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Input Suara</a>
+                                           class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Input
+                                            Suara</a>
                                     @endif
                                 @endguest
                                 <a href="{{ route('perhitungan.index') }}"
-                                   class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Perhitungan Cepat</a>
+                                   class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Perhitungan
+                                    Cepat</a>
 
                             </div>
                         </div>
@@ -66,7 +72,8 @@
                                     <a href="{{ route('login') }}"
                                        class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Login</a>
                                     <a href="{{ route('register') }}"
-                                       class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Register Relawan</a>
+                                       class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Register
+                                        Relawan</a>
                                 </div>
                             @else
                                 {{--                                @if(Auth::user()->is_complete)--}}
@@ -148,11 +155,13 @@
                                class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Relawan</a>
                         @else
                             <a href="{{ route('vote.index') }}"
-                               class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Input Suara</a>
+                               class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Input
+                                Suara</a>
                         @endif
                     @endguest
                     <a href="{{ route('perhitungan.index') }}"
-                       class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Perhitungan Cepat</a>
+                       class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Perhitungan
+                        Cepat</a>
                 </div>
 
                 <div class="pt-3 pb-3 border-t border-gray-700">
@@ -163,7 +172,8 @@
                         </div>
                         <div class="px-2">
                             <a href="{{ route('register') }}"
-                               class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Register Relawan</a>
+                               class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Register
+                                Relawan</a>
                         </div>
                     @else
                         <div class="flex items-center px-5">
@@ -216,17 +226,65 @@
             </div>
         </header>
         <main>
+            {{--            <button class="modal-open bg-transparent border border-gray-500 hover:border-indigo-500 text-gray-500 hover:text-indigo-500 font-bold py-2 px-4 rounded-full">Open Modal</button>--}}
             @yield('content')
         </main>
     </div>
 
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/gsap.min.js"
             integrity="sha512-3WGIRFCuTpZhqYujwLp5RtARPkOy3uRtc3RXB31bJ9/i6VH2C66Z0WBV6gHhdhbUIDKFx8yTkLfEjdQM5Wl+ZQ=="
             crossorigin="anonymous"></script>
-    @stack('script')
     <script>
-
+        // $.fn.extend(
+        //     {
+        //         modal: function (action) {
+        //             const modal = this[0];
+        //             const body = document.querySelector('body')
+        //             const overlay = modal.querySelector('.modal-overlay')
+        //             const closemodal = modal.querySelectorAll('.modal-close')
+        //
+        //             switch(action) {
+        //                 case 'show':
+        //                     toggleModal()
+        //                     break;
+        //                 case 'hide':
+        //                     toggleModal()
+        //                     break;
+        //                 default:
+        //
+        //             }
+        //
+        //             overlay.addEventListener('click', toggleModal)
+        //             for (var i = 0; i < closemodal.length; i++) {
+        //                 closemodal[i].addEventListener('click', toggleModal)
+        //             }
+        //
+        //             document.onkeydown = function (evt) {
+        //                 evt = evt || window.event
+        //                 var isEscape = false
+        //                 if ("key" in evt) {
+        //                     isEscape = (evt.key === "Escape" || evt.key === "Esc")
+        //                 } else {
+        //                     isEscape = (evt.keyCode === 27)
+        //                 }
+        //                 if (isEscape && document.body.classList.contains('modal-active')) {
+        //                     toggleModal()
+        //                 }
+        //             };
+        //
+        //             function toggleModal() {
+        //                 modal.classList.toggle('opacity-0')
+        //                 modal.classList.toggle('pointer-events-none')
+        //                 body.classList.toggle('modal-active')
+        //             }
+        //         }
+        //
+        //     }
+        // );
     </script>
+    @stack('script')
+
 </div>
 </body>
 </html>

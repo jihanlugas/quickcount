@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Candidate;
+use App\Photoupload;
 use App\Tps;
 use App\Election;
 use App\Peroid;
@@ -109,7 +111,7 @@ class AjaxController extends Controller
     {
         $mElection = Election::findOrFail($request->election_id);
         $data = [];
-        $colors = ['red', 'blue', 'green', 'yellow', 'pink'];
+        $colors = ['red', 'blue', 'green', 'yellow', 'pink', 'orange'];
         $data['vote'] = DB::selectOne("SELECT SUM(votes.suara_sah) as suara_sah
                                                 , SUM(votes.suara_tidak_sah) as suara_tidak_sah
                                                 , SUM(votes.total_suara) as total_suara
@@ -141,6 +143,11 @@ class AjaxController extends Controller
             [
                 'eid' => $mElection->id,
             ]);
+
+//        echo json_encode($data['candidates']);
+//        die;
+
+
 
         foreach ($data['candidates'] as $index => $candidate){
             $data['candidates'][$index]->color = $colors[$index];
@@ -189,5 +196,36 @@ class AjaxController extends Controller
 //
 //        return response()->json($qTpss);
     }
+
+    public function uploadphotocandidate(Request $request){
+        $vResult['status'] = false;
+        $mCandidate = Candidate::findOrFail($request->candidate_id);
+        if ($mCandidate){
+            DB::beginTransaction();
+            try {
+                if ($request->photo_id){
+                    $photo_id = Photoupload::uploadPhoto($request->photo_id, $mCandidate->id, Photoupload::REF_TYPE_TABLE_CANDIDATES, $mCandidate->id);
+                    $vResult['status'] = true;
+                    $vResult['candidate_id'] = $mCandidate->id;
+                    $vResult['photo'] =
+                    $mCandidate->photo_id = $photo_id;
+                    $mCandidate->save();
+
+                    $vResult['status'] = true;
+                    $vResult['candidate_id'] = $mCandidate->id;
+                    $vResult['photo'] = Photoupload::getFilepathOrigin($mCandidate->photo_id);
+                }
+
+                DB::commit();
+            } catch (Throwable $e) {
+                DB::rollBack();
+                dd($e);
+            }
+        }
+
+        return response()->json($vResult);
+    }
+
+
 
 }

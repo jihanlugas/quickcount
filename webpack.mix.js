@@ -13,15 +13,18 @@ const tailwindcss = require('tailwindcss');
  |
  */
 
-mix.js(['resources/js/app.js', 'node_modules/flatpickr/dist/flatpickr.js'], 'public/js')
+mix.js(
+    [
+        'resources/js/app.js',
+        // 'node_modules/cropper/dist/cropper.js',
+    ], 'public/js')
     .sass('resources/sass/app.scss', 'public/css')
     .stylus('node_modules/flatpickr/src/style/flatpickr.styl', 'public/css')
     .options({
         processCssUrls: false,
         postCss: [tailwindcss('tailwind.config.js')],
     })
-    .copyDirectory('node_modules/@fortawesome/fontawesome-free/webfonts', 'public/webfonts');
-
+    .copyDirectory('node_modules/@fortawesome/fontawesome-free/webfonts', 'public/webfonts')
 ;
 
 if (mix.inProduction()) {

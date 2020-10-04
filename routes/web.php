@@ -87,7 +87,8 @@ Route::group(['prefix' => 'ajax'], function () {
     Route::post('gettpss', 'AjaxController@gettpss')->name('ajax.gettpss');
     Route::post('getavailabletpss', 'AjaxController@getavailabletpss')->name('ajax.getavailabletpss');
     Route::post('getperhitungandata', 'AjaxController@getperhitungandata')->name('ajax.getperhitungandata');
-    Route::post('getgetusertps', 'AjaxController@getusertps')->name('ajax.getusertps');
+    Route::post('getusertps', 'AjaxController@getusertps')->name('ajax.getusertps');
+    Route::post('uploadphotocandidate', 'AjaxController@uploadphotocandidate')->name('ajax.uploadphotocandidate');
 });
 
 Route::group(['prefix' => 'perhitungan'], function () {

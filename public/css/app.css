@@ -27586,6 +27586,15 @@ readers do not read off random characters that represent icons */
   width: auto;
 }
 
+.modal {
+  transition: opacity 0.25s ease;
+}
+
+body.modal-active {
+  overflow-x: hidden;
+  overflow-y: visible !important;
+}
+
 @media (min-width: 640px){
   .sm\:container{
     width: 100%;

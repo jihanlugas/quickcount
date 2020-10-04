@@ -21,13 +21,41 @@
             </div>
             <div class="flex flex-wrap mt-4 w-full">
                 <div class="text-lg font-bold w-full">Kandidat</div>
-                <div class="flex flex-wrap w-full -mx-2">
-                    @forelse($mCandidates as $index => $candidate)
-                        <div class="flex flex-wrap flex-col px-2 w-full sm:w-1/2">
-                            <div class="font-bold">{{ 'No. Urut : ' . $candidate->nourut }}</div>
-                            <div class="">{{ 'Ketua : ' . $candidate->ketua }}</div>
-                            <div class="">{{ 'Wakil : ' . $candidate->wakil }}</div>
-                            <div class="candidate_{{ $index }}"></div>
+{{--                <div class="flex flex-wrap w-full -mx-2">--}}
+{{--                    @forelse($mCandidates as $index => $candidate)--}}
+{{--                        <div class="flex flex-wrap flex-col px-2 w-full sm:w-1/2">--}}
+{{--                            <div class="font-bold">{{ 'No. Urut : ' . $candidate->nourut }}</div>--}}
+{{--                            <div class="">{{ 'Ketua : ' . $candidate->ketua }}</div>--}}
+{{--                            <div class="">{{ 'Wakil : ' . $candidate->wakil }}</div>--}}
+{{--                            <div class="candidate_{{ $index }}"></div>--}}
+{{--                        </div>--}}
+{{--                    @empty--}}
+{{--                    @endforelse--}}
+{{--                </div>--}}
+                <div class="flex flex-wrap -mx-3">
+                    @forelse($mCandidates as $i => $mCandidate)
+                        <div class="flex flex-wrap mb-4 w-full sm:w-1/2 md:w-1/3 Photo_container px-3">
+                            <div class="w-full bg-white shadow-xl rounded-lg overflow-hidden">
+                                <img class="w-full btnInputimage" data-candidateid="{{ $mCandidate->id }}"
+                                     src="{{ $mCandidate->photo_id ? \App\Photoupload::getFilepathOrigin($mCandidate->photo_id) : asset('img/default-user.png') }}"
+                                     alt="">
+                                <input type="file" name="photo_id" class="hidden inputImage" data-candidateid="{{ $mCandidate->id }}">
+                                <div class="w-full p-3">
+                                    <div class="flex justify-between">
+                                        <div class="">No Urut</div>
+                                        <div class="">{{ $mCandidate->nourut }}</div>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <div class="">Ketua</div>
+                                        <div class="">{{ $mCandidate->ketua }}</div>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <div class="">Wakil</div>
+                                        <div class="">{{ $mCandidate->wakil }}</div>
+                                    </div>
+                                    <div class="candidate_{{ $i }}"></div>
+                                </div>
+                            </div>
                         </div>
                     @empty
                     @endforelse
