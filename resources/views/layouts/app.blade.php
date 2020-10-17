@@ -36,7 +36,7 @@
                 <div class="flex items-center justify-between h-16">
                     <div class="flex items-center">
                         <a href="{{ route('beranda') }}" class="flex-shrink-0 -ml-2 p-2">
-                            <img class="h-8 w-8" src="https://tailwindui.com/img/logos/workflow-mark-on-dark.svg"
+                            <img class="h-8" src="{{ asset('img/logo.png') }}"
                                  alt="Workflow logo">
                         </a>
                         <div class="hidden md:block">
@@ -76,20 +76,6 @@
                                         Relawan</a>
                                 </div>
                             @else
-                                {{--                                @if(Auth::user()->is_complete)--}}
-                                {{--                                    <div class="ml-10 flex items-baseline">--}}
-                                {{--                                        <a href="{{ route('request') }}"--}}
-                                {{--                                           class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Permintaan</a>--}}
-                                {{--                                    </div>--}}
-                                {{--                                @else--}}
-                                {{--                                    <div class="ml-10 flex items-baseline">--}}
-                                {{--                                        <a href="{{ route('invitation') }}"--}}
-                                {{--                                           class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Kode--}}
-                                {{--                                            Undangan</a>--}}
-                                {{--                                        <a href="{{ route('upload') }}"--}}
-                                {{--                                           class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Upload</a>--}}
-                                {{--                                    </div>--}}
-                                {{--                                @endif--}}
                                 <div class="ml-3 relative">
                                     <div>
                                         <button
@@ -100,19 +86,12 @@
                                                  alt="">
                                         </button>
                                     </div>
-                                    <div
-                                        class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg hidden c-tw-js"
-                                        id="user-menu-context">
-                                        <div class="py-1 rounded-md bg-white shadow-xs" role="menu"
-                                             aria-orientation="vertical" aria-labelledby="user-menu">
-                                            {{--                                            @if(Auth::user()->is_complete)--}}
-                                            {{--                                                <a href="{{ route('profile') }}"--}}
-                                            {{--                                                   class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"--}}
-                                            {{--                                                   role="menuitem">Profile</a>--}}
-                                            {{--                                            @endif--}}
+                                    <div class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg hidden c-tw-js" id="user-menu-context">
+                                        <div class="py-1 rounded-md bg-white shadow-xs" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
+                                            <a href="{{ route('user.changepass') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Ganti Password</a>
                                             <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
-                                               role="menuitem">Sign out</a>
+                                               role="menuitem">Keluar</a>
                                         </div>
                                     </div>
                                 </div>
@@ -190,25 +169,11 @@
                             </div>
                         </div>
                         <div class="mt-3 px-2">
-                            {{--                            @if(Auth::user()->is_complete)--}}
-                            {{--                                <a href="{{ route('profile') }}"--}}
-                            {{--                                   class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">--}}
-                            {{--                                    Profile</a>--}}
-                            {{--                                <a href="{{ route('request') }}"--}}
-                            {{--                                   class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">--}}
-                            {{--                                    Permintaan</a>--}}
-                            {{--                            @else--}}
-                            {{--                                <a href="{{ route('invitation') }}"--}}
-                            {{--                                   class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">--}}
-                            {{--                                    Kode Undangan</a>--}}
-                            {{--                                <a href="{{ route('upload') }}"--}}
-                            {{--                                   class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">--}}
-                            {{--                                    Upload</a>--}}
-                            {{--                            @endif--}}
+                            <a href="{{ route('user.changepass') }}" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Ganti Password</a>
                             <a href="#"
                                class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                Sign out</a>
+                                Keluar</a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
                                 {{ csrf_field() }}
                             </form>
@@ -219,7 +184,7 @@
         </nav>
 
         <header class="bg-white shadow">
-            <div class="p-4 max-w-3xl mx-auto">
+            <div class="h-16 flex items-center max-w-3xl mx-auto px-4">
                 <h1 class="text-2xl font-bold leading-tight text-gray-900">
                     @yield('header')
                 </h1>
@@ -229,6 +194,11 @@
             {{--            <button class="modal-open bg-transparent border border-gray-500 hover:border-indigo-500 text-gray-500 hover:text-indigo-500 font-bold py-2 px-4 rounded-full">Open Modal</button>--}}
             @yield('content')
         </main>
+        <footer class="bg-gray-800 text-gray-300">
+            <div class="h-16 flex items-center justify-center max-w-3xl mx-auto">
+                <div>©{{ date('Y') }}<span class=""> Developer Team. All Rights Reserved.</span></div>
+            </div>
+        </footer>
     </div>
 
 
@@ -236,52 +206,6 @@
             integrity="sha512-3WGIRFCuTpZhqYujwLp5RtARPkOy3uRtc3RXB31bJ9/i6VH2C66Z0WBV6gHhdhbUIDKFx8yTkLfEjdQM5Wl+ZQ=="
             crossorigin="anonymous"></script>
     <script>
-        // $.fn.extend(
-        //     {
-        //         modal: function (action) {
-        //             const modal = this[0];
-        //             const body = document.querySelector('body')
-        //             const overlay = modal.querySelector('.modal-overlay')
-        //             const closemodal = modal.querySelectorAll('.modal-close')
-        //
-        //             switch(action) {
-        //                 case 'show':
-        //                     toggleModal()
-        //                     break;
-        //                 case 'hide':
-        //                     toggleModal()
-        //                     break;
-        //                 default:
-        //
-        //             }
-        //
-        //             overlay.addEventListener('click', toggleModal)
-        //             for (var i = 0; i < closemodal.length; i++) {
-        //                 closemodal[i].addEventListener('click', toggleModal)
-        //             }
-        //
-        //             document.onkeydown = function (evt) {
-        //                 evt = evt || window.event
-        //                 var isEscape = false
-        //                 if ("key" in evt) {
-        //                     isEscape = (evt.key === "Escape" || evt.key === "Esc")
-        //                 } else {
-        //                     isEscape = (evt.keyCode === 27)
-        //                 }
-        //                 if (isEscape && document.body.classList.contains('modal-active')) {
-        //                     toggleModal()
-        //                 }
-        //             };
-        //
-        //             function toggleModal() {
-        //                 modal.classList.toggle('opacity-0')
-        //                 modal.classList.toggle('pointer-events-none')
-        //                 body.classList.toggle('modal-active')
-        //             }
-        //         }
-        //
-        //     }
-        // );
     </script>
     @stack('script')
 

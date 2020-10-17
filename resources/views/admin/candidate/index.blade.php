@@ -23,18 +23,33 @@
                              alt="">
                         <input type="file" name="photo_id" class="hidden inputImage" data-candidateid="{{ $mCandidate->id }}">
                         <div class="w-full p-3">
-                            <div class="flex justify-between">
+                            <div class="flex justify-between mb-2">
                                 <div class="">No Urut</div>
                                 <div class="">{{ $mCandidate->nourut }}</div>
                             </div>
-                            <div class="flex justify-between">
+                            <div class="flex justify-between mb-2">
                                 <div class="">Ketua</div>
                                 <div class="">{{ $mCandidate->ketua }}</div>
                             </div>
-                            <div class="flex justify-between">
+                            <div class="flex justify-between mb-2">
                                 <div class="">Wakil</div>
                                 <div class="">{{ $mCandidate->wakil }}</div>
                             </div>
+                            <div class="flex justify-between mb-2">
+                                <a href="{{ route('candidate.edit', ['pemilu' => $mElection->id, 'candidate' => $mCandidate->id]) }}"
+                                   class="w-full text-center font-bold p-2 border rounded text-gray-100 bg-yellow-500 hover:bg-yellow-700 focus:outline-none focus:shadow-outline">
+                                    <i class="fas fa-pencil-alt"></i> Edit</a>
+                            </div>
+                            <form action="{{ route('candidate.destroy', ['pemilu' => $mElection->id, 'candidate' => $mCandidate->id]) }}"
+                                  method="post"
+                                  class="flex justify-between mb-2">
+                                @csrf
+                                @method('delete')
+                                <button type="submit"
+                                        class="w-full text-center font-bold p-2 border rounded text-gray-100 bg-red-500 hover:bg-red-700 focus:outline-none focus:shadow-outline">
+                                    <i class="fas fa-trash"></i> Hapus
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </div>

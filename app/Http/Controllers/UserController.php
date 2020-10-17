@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use App\Vote;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -21,6 +22,7 @@ class UserController extends AdminController
             'address' => ['required'],
         ]);
     }
+
     protected function uservalidatorupdate(array $data)
     {
         return Validator::make($data, [
@@ -28,6 +30,14 @@ class UserController extends AdminController
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'phone' => ['required', 'numeric'],
             'address' => ['required'],
+        ]);
+    }
+
+    protected function changepassvalidator(array $data)
+    {
+        return Validator::make($data, [
+            'old_password' => ['required', 'string', 'max:255'],
+            'password' => ['required', 'string', 'min:6', 'confirmed', 'different:old_password'],
         ]);
     }
 
@@ -153,6 +163,36 @@ class UserController extends AdminController
             }
         }else{
             return redirect()->route('user.tps', ['user' => $mUser->id])->with('danger', 'Relawan Tidak Memilih TPS tersebut');
+        }
+    }
+
+    public function changepass(){
+        $mUser = User::findOrFail(Auth::user()->id);
+        return view('admin.user.changepass', [
+            'mUser' => $mUser,
+        ]);
+
+    }
+
+    public function changepassstore(Request $request){
+        $mUser = User::findOrFail(Auth::user()->id);
+        $this->changepassvalidator($request->all())->validate();
+
+        if (Hash::check($request->old_password, $mUser->password)){
+            DB::beginTransaction();
+            try {
+                $mUser->fill([
+                    'password' => Hash::make($request->password)
+                ])->save();
+                DB::commit();
+
+                return redirect()->route('user.changepass')->with('success', 'Berhasil Ganti Password');
+            } catch (Throwable $e) {
+                DB::rollBack();
+                dd($e);
+            }
+        }else{
+            return redirect()->route('user.changepass')->with('danger', 'Password Lama Salah');
         }
     }
 

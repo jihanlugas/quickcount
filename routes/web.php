@@ -55,6 +55,8 @@ Route::group(['prefix' => 'user'], function () {
     Route::get('{user}/tps', 'UserController@tps')->name('user.tps');
     Route::post('{user}/approve', 'UserController@approve')->name('user.approve');
     Route::post('{user}/reject', 'UserController@reject')->name('user.reject');
+    Route::get('changepass', 'UserController@changepass')->name('user.changepass');
+    Route::post('', 'UserController@changepassstore')->name('user.changepassstore');
 });
 
 Route::group(['prefix' => 'tps'], function () {
