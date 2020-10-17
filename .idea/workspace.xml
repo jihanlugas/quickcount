@@ -5,25 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a481694-81a2-4bce-8adc-ab86934a99eb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/js/custom/modal.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/_custom.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/custom/_modal.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layouts/modal/uploadphoto.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Candidate.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Candidate.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AjaxController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AjaxController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/bootstrap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/custom.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/custom.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/candidate/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/candidate/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/candidate/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/candidate/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/perhitungan/detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/perhitungan/detail.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,7 +139,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/js/custom" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../sekawan" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -221,7 +203,10 @@
       <workItem from="1601559331583" duration="12327000" />
       <workItem from="1601647307674" duration="5957000" />
       <workItem from="1601710837877" duration="9885000" />
-      <workItem from="1601797691782" duration="9979000" />
+      <workItem from="1601797691782" duration="10579000" />
+      <workItem from="1601913339864" duration="38000" />
+      <workItem from="1602326638996" duration="5373000" />
+      <workItem from="1602405857077" duration="3775000" />
     </task>
     <servers />
   </component>
@@ -248,10 +233,10 @@
       <screen x="37" y="27" width="1563" height="873" />
     </state>
     <state x="551" y="220" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/37.27.1563.873@37.27.1563.873" timestamp="1601563173477" />
-    <state x="601" y="220" width="424" height="484" key="FileChooserDialogImpl" timestamp="1601047742411">
+    <state x="601" y="220" width="424" height="484" key="FileChooserDialogImpl" timestamp="1602417772697">
       <screen x="37" y="27" width="1563" height="873" />
     </state>
-    <state x="601" y="220" width="424" height="484" key="FileChooserDialogImpl/37.27.1563.873@37.27.1563.873" timestamp="1601047742411" />
+    <state x="601" y="220" width="424" height="484" key="FileChooserDialogImpl/37.27.1563.873@37.27.1563.873" timestamp="1602417772697" />
     <state width="1521" height="220" key="GridCell.Tab.0.bottom" timestamp="1599502189210">
       <screen x="37" y="27" width="1563" height="873" />
     </state>
@@ -292,10 +277,10 @@
       <screen x="37" y="27" width="1563" height="873" />
     </state>
     <state x="482" y="208" key="run.anything.popup/37.27.1563.873@37.27.1563.873" timestamp="1600599905128" />
-    <state x="481" y="212" width="672" height="678" key="search.everywhere.popup" timestamp="1601811758398">
+    <state x="481" y="212" width="672" height="678" key="search.everywhere.popup" timestamp="1602417764771">
       <screen x="37" y="27" width="1563" height="873" />
     </state>
-    <state x="481" y="212" width="672" height="678" key="search.everywhere.popup/37.27.1563.873@37.27.1563.873" timestamp="1601811758398" />
+    <state x="481" y="212" width="672" height="678" key="search.everywhere.popup/37.27.1563.873@37.27.1563.873" timestamp="1602417764771" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
