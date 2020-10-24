@@ -14,7 +14,8 @@ class PublicController extends Controller
 
     public function beranda()
     {
-        return view('beranda');
+        return redirect(route("perhitungan.index"));
+//        return view('beranda');
     }
 
     public function success()

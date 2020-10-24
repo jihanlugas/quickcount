@@ -13,7 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
 Route::get('/', 'PublicController@beranda')->name('beranda');
 Route::get('/beranda', 'PublicController@beranda')->name('beranda');
 //Route::get('/tes', 'PublicController@tes')->name('tes');

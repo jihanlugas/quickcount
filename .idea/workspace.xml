@@ -23,15 +23,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a481694-81a2-4bce-8adc-ab86934a99eb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/img/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/_layout.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/public/.htaccess" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/beranda.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/beranda.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -242,7 +234,7 @@
       <workItem from="1601797691782" duration="9979000" />
       <workItem from="1603375880542" duration="4129000" />
       <workItem from="1603465024884" duration="6754000" />
-      <workItem from="1603522255900" duration="5399000" />
+      <workItem from="1603522255900" duration="5946000" />
     </task>
     <servers />
   </component>
