@@ -3,27 +3,35 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="0a481694-81a2-4bce-8adc-ab86934a99eb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/js/custom/modal.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/_custom.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/custom/_modal.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layouts/modal/uploadphoto.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/_layout.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Candidate.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Candidate.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AjaxController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AjaxController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/public/.htaccess" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/bootstrap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/custom.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/custom.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/candidate/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/candidate/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/candidate/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/candidate/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/beranda.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/beranda.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/perhitungan/detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/perhitungan/detail.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +41,9 @@
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -157,8 +168,15 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/js/custom" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/sass" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -168,11 +186,11 @@
       <recent name="$PROJECT_DIR$/resources/views/admin/pilkada" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/sass" />
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/resources/js/custom" />
       <recent name="$PROJECT_DIR$/resources/views/layouts" />
-      <recent name="$PROJECT_DIR$/resources/sass" />
       <recent name="$PROJECT_DIR$/resources/views" />
-      <recent name="$PROJECT_DIR$/resources/views/perhitungan" />
     </key>
   </component>
   <component name="RunManager">
@@ -222,11 +240,29 @@
       <workItem from="1601647307674" duration="5957000" />
       <workItem from="1601710837877" duration="9885000" />
       <workItem from="1601797691782" duration="9979000" />
+      <workItem from="1603375880542" duration="4129000" />
+      <workItem from="1603465024884" duration="6754000" />
+      <workItem from="1603522255900" duration="5399000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.env" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -236,14 +272,16 @@
       <screen x="37" y="27" width="1563" height="873" />
     </state>
     <state x="620" y="346" width="386" height="233" key="#Composer/37.27.1563.873@37.27.1563.873" timestamp="1599496122476" />
-    <state x="413" y="124" width="800" height="677" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1600360955713">
-      <screen x="37" y="27" width="1563" height="873" />
+    <state x="415" y="124" width="800" height="677" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603379662320">
+      <screen x="40" y="27" width="1560" height="873" />
     </state>
     <state x="413" y="124" width="800" height="677" key="#com.intellij.execution.impl.EditConfigurationsDialog/37.27.1563.873@37.27.1563.873" timestamp="1600360955713" />
-    <state x="575" y="267" width="476" height="390" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1600800390450">
-      <screen x="37" y="27" width="1563" height="873" />
+    <state x="415" y="124" key="#com.intellij.execution.impl.EditConfigurationsDialog/40.27.1560.873@40.27.1560.873" timestamp="1603379662320" />
+    <state x="577" y="267" width="559" height="390" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1603377137265">
+      <screen x="40" y="27" width="1560" height="873" />
     </state>
     <state x="575" y="267" width="476" height="390" key="#com.intellij.fileTypes.FileTypeChooser/37.27.1563.873@37.27.1563.873" timestamp="1600800390450" />
+    <state x="577" y="267" width="559" height="390" key="#com.intellij.fileTypes.FileTypeChooser/40.27.1560.873@40.27.1560.873" timestamp="1603377137265" />
     <state x="551" y="220" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1601563173477">
       <screen x="37" y="27" width="1563" height="873" />
     </state>
@@ -252,26 +290,38 @@
       <screen x="37" y="27" width="1563" height="873" />
     </state>
     <state x="601" y="220" width="424" height="484" key="FileChooserDialogImpl/37.27.1563.873@37.27.1563.873" timestamp="1601047742411" />
-    <state width="1521" height="220" key="GridCell.Tab.0.bottom" timestamp="1599502189210">
-      <screen x="37" y="27" width="1563" height="873" />
+    <state width="1514" height="216" key="GridCell.Tab.0.bottom" timestamp="1603386746804">
+      <screen x="40" y="27" width="1560" height="873" />
     </state>
     <state width="1521" height="220" key="GridCell.Tab.0.bottom/37.27.1563.873@37.27.1563.873" timestamp="1599502189210" />
-    <state width="1521" height="220" key="GridCell.Tab.0.center" timestamp="1599502189209">
-      <screen x="37" y="27" width="1563" height="873" />
+    <state width="1514" height="216" key="GridCell.Tab.0.bottom/40.27.1560.873@40.27.1560.873" timestamp="1603386746804" />
+    <state width="1514" height="216" key="GridCell.Tab.0.center" timestamp="1603386746804">
+      <screen x="40" y="27" width="1560" height="873" />
     </state>
     <state width="1521" height="220" key="GridCell.Tab.0.center/37.27.1563.873@37.27.1563.873" timestamp="1599502189209" />
-    <state width="1521" height="220" key="GridCell.Tab.0.left" timestamp="1599502189209">
-      <screen x="37" y="27" width="1563" height="873" />
+    <state width="1514" height="216" key="GridCell.Tab.0.center/40.27.1560.873@40.27.1560.873" timestamp="1603386746804" />
+    <state width="1514" height="216" key="GridCell.Tab.0.left" timestamp="1603386746803">
+      <screen x="40" y="27" width="1560" height="873" />
     </state>
     <state width="1521" height="220" key="GridCell.Tab.0.left/37.27.1563.873@37.27.1563.873" timestamp="1599502189209" />
-    <state width="1521" height="220" key="GridCell.Tab.0.right" timestamp="1599502189210">
-      <screen x="37" y="27" width="1563" height="873" />
+    <state width="1514" height="216" key="GridCell.Tab.0.left/40.27.1560.873@40.27.1560.873" timestamp="1603386746803" />
+    <state width="1514" height="216" key="GridCell.Tab.0.right" timestamp="1603386746804">
+      <screen x="40" y="27" width="1560" height="873" />
     </state>
     <state width="1521" height="220" key="GridCell.Tab.0.right/37.27.1563.873@37.27.1563.873" timestamp="1599502189210" />
+    <state width="1514" height="216" key="GridCell.Tab.0.right/40.27.1560.873@40.27.1560.873" timestamp="1603386746804" />
+    <state width="263" height="500" key="HiddenNamespacesPopup" timestamp="1603379558056">
+      <screen x="40" y="27" width="1560" height="873" />
+    </state>
+    <state width="263" height="500" key="HiddenNamespacesPopup/40.27.1560.873@40.27.1560.873" timestamp="1603379558056" />
     <state x="609" y="191" width="408" height="542" key="NewPhpClassDialog" timestamp="1600867160737">
       <screen x="37" y="27" width="1563" height="873" />
     </state>
     <state x="609" y="191" width="408" height="542" key="NewPhpClassDialog/37.27.1563.873@37.27.1563.873" timestamp="1600867160737" />
+    <state x="309" y="98" width="1022" height="737" key="SettingsEditor" timestamp="1603466478080">
+      <screen x="40" y="27" width="1560" height="873" />
+    </state>
+    <state x="309" y="98" width="1022" height="737" key="SettingsEditor/40.27.1560.873@40.27.1560.873" timestamp="1603466478080" />
     <state x="472" y="80" width="683" height="765" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1600267771067">
       <screen x="37" y="27" width="1563" height="873" />
     </state>
@@ -280,10 +330,11 @@
       <screen x="37" y="27" width="1563" height="873" />
     </state>
     <state x="137" y="125" width="1363" height="675" key="dock-window-1/37.27.1563.873@37.27.1563.873" timestamp="1601196611518" />
-    <state x="524" y="211" width="589" height="560" key="find.popup" timestamp="1601802788685">
-      <screen x="37" y="27" width="1563" height="873" />
+    <state x="526" y="211" width="588" height="560" key="find.popup" timestamp="1603540947911">
+      <screen x="40" y="27" width="1560" height="873" />
     </state>
     <state x="524" y="211" width="589" height="560" key="find.popup/37.27.1563.873@37.27.1563.873" timestamp="1601802788685" />
+    <state x="526" y="211" width="588" height="560" key="find.popup/40.27.1560.873@40.27.1560.873" timestamp="1603540947911" />
     <state x="467" y="181" width="700" height="530" key="recent.locations.popup" timestamp="1600181704577">
       <screen x="37" y="27" width="1563" height="873" />
     </state>
@@ -292,10 +343,11 @@
       <screen x="37" y="27" width="1563" height="873" />
     </state>
     <state x="482" y="208" key="run.anything.popup/37.27.1563.873@37.27.1563.873" timestamp="1600599905128" />
-    <state x="481" y="212" width="672" height="678" key="search.everywhere.popup" timestamp="1601811758398">
-      <screen x="37" y="27" width="1563" height="873" />
+    <state x="483" y="212" width="672" height="678" key="search.everywhere.popup" timestamp="1603547111504">
+      <screen x="40" y="27" width="1560" height="873" />
     </state>
     <state x="481" y="212" width="672" height="678" key="search.everywhere.popup/37.27.1563.873@37.27.1563.873" timestamp="1601811758398" />
+    <state x="483" y="212" width="672" height="678" key="search.everywhere.popup/40.27.1560.873@40.27.1560.873" timestamp="1603547111504" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

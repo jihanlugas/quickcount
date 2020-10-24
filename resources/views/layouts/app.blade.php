@@ -30,261 +30,197 @@
 </head>
 <body>
 <div id="app">
-    <div>
-        <nav class="bg-gray-800">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex items-center justify-between h-16">
-                    <div class="flex items-center">
-                        <a href="{{ route('beranda') }}" class="flex-shrink-0 -ml-2 p-2">
-                            <img class="h-8 w-8" src="https://tailwindui.com/img/logos/workflow-mark-on-dark.svg"
-                                 alt="Workflow logo">
-                        </a>
-                        <div class="hidden md:block">
-                            <div class="flex items-baseline">
-                                <a href="{{ route('beranda') }}"
-                                   class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Beranda</a>
-                                @guest()
-                                @else
-                                    @if(Auth::user()->role_id == 1)
-                                        <a href="{{ route('pemilu.index') }}"
-                                           class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Pemilu</a>
-                                        <a href="{{ route('tps.index') }}"
-                                           class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">TPS</a>
-                                        <a href="{{ route('user.index') }}"
-                                           class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Relawan</a>
-                                    @else
-                                        <a href="{{ route('vote.index') }}"
-                                           class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Input
-                                            Suara</a>
-                                    @endif
-                                @endguest
-                                <a href="{{ route('perhitungan.index') }}"
-                                   class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Perhitungan
-                                    Cepat</a>
-
-                            </div>
-                        </div>
-                    </div>
+    <nav class="bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <a href="{{ route('beranda') }}" class="flex-shrink-0 -ml-2 p-2">
+                        <img class="h-8" src="{{ asset("img/logo.png") }}"
+                             alt="Workflow logo">
+                    </a>
                     <div class="hidden md:block">
-                        <div class="ml-4 flex items-center md:ml-6">
-                            @guest
-                                <div class="ml-10 flex items-baseline">
-                                    <a href="{{ route('login') }}"
-                                       class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Login</a>
-                                    <a href="{{ route('register') }}"
-                                       class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Register
-                                        Relawan</a>
-                                </div>
+                        <div class="flex items-baseline">
+                            <a href="{{ route('beranda') }}"
+                               class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Beranda</a>
+                            @guest()
                             @else
-                                {{--                                @if(Auth::user()->is_complete)--}}
-                                {{--                                    <div class="ml-10 flex items-baseline">--}}
-                                {{--                                        <a href="{{ route('request') }}"--}}
-                                {{--                                           class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Permintaan</a>--}}
-                                {{--                                    </div>--}}
-                                {{--                                @else--}}
-                                {{--                                    <div class="ml-10 flex items-baseline">--}}
-                                {{--                                        <a href="{{ route('invitation') }}"--}}
-                                {{--                                           class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Kode--}}
-                                {{--                                            Undangan</a>--}}
-                                {{--                                        <a href="{{ route('upload') }}"--}}
-                                {{--                                           class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Upload</a>--}}
-                                {{--                                    </div>--}}
-                                {{--                                @endif--}}
-                                <div class="ml-3 relative">
-                                    <div>
-                                        <button
-                                            class="max-w-xs flex items-center text-sm rounded-full text-white focus:outline-none focus:shadow-solid"
-                                            id="user-menu-toggle" aria-label="User menu" aria-haspopup="true">
-                                            <img class="h-8 w-8 rounded-full"
-                                                 src="{{ asset('img/default-user.png') }}"
-                                                 alt="">
-                                        </button>
-                                    </div>
-                                    <div
-                                        class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg hidden c-tw-js"
-                                        id="user-menu-context">
-                                        <div class="py-1 rounded-md bg-white shadow-xs" role="menu"
-                                             aria-orientation="vertical" aria-labelledby="user-menu">
-                                            {{--                                            @if(Auth::user()->is_complete)--}}
-                                            {{--                                                <a href="{{ route('profile') }}"--}}
-                                            {{--                                                   class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"--}}
-                                            {{--                                                   role="menuitem">Profile</a>--}}
-                                            {{--                                            @endif--}}
-                                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                                               onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
-                                               role="menuitem">Sign out</a>
-                                        </div>
+                                @if(Auth::user()->role_id == 1)
+                                    <a href="{{ route('pemilu.index') }}"
+                                       class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Pemilu</a>
+                                    <a href="{{ route('tps.index') }}"
+                                       class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">TPS</a>
+                                    <a href="{{ route('user.index') }}"
+                                       class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Relawan</a>
+                                @else
+                                    <a href="{{ route('vote.index') }}"
+                                       class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Input
+                                        Suara</a>
+                                @endif
+                            @endguest
+                            <a href="{{ route('perhitungan.index') }}"
+                               class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Perhitungan
+                                Cepat</a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-4 flex items-center md:ml-6">
+                        @guest
+                            <div class="ml-10 flex items-baseline">
+                                <a href="{{ route('login') }}"
+                                   class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Login</a>
+                                <a href="{{ route('register') }}"
+                                   class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Register
+                                    Relawan</a>
+                            </div>
+                        @else
+                            <div class="ml-3 relative">
+                                <div>
+                                    <button
+                                        class="max-w-xs flex items-center text-sm rounded-full text-white focus:outline-none focus:shadow-solid"
+                                        id="user-menu-toggle" aria-label="User menu" aria-haspopup="true">
+                                        <img class="h-8 w-8 rounded-full"
+                                             src="{{ asset('img/default-user.png') }}"
+                                             alt="">
+                                    </button>
+                                </div>
+                                <div
+                                    class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg hidden c-tw-js"
+                                    id="user-menu-context">
+                                    <div class="py-1 rounded-md bg-white shadow-xs" role="menu"
+                                         aria-orientation="vertical" aria-labelledby="user-menu">
+                                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                           onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                                           role="menuitem">Sign out</a>
                                     </div>
                                 </div>
-                            @endguest
+                            </div>
+                        @endguest
 
-                        </div>
-                    </div>
-                    <div class="-mr-2 flex md:hidden">
-                        <!-- Mobile menu button -->
-                        <button id="nav-toggle"
-                                class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white">
-                            <!-- Menu open: "hidden", Menu closed: "block" -->
-                            <svg class="block h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                      d="M4 6h16M4 12h16M4 18h16"/>
-                            </svg>
-                            <!-- Menu open: "block", Menu closed: "hidden" -->
-                            <svg class="hidden h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                      d="M6 18L18 6M6 6l12 12"/>
-                            </svg>
-                        </button>
                     </div>
                 </div>
-            </div>
-
-            <div class="hidden md:hidden c-tw-js" id="nav-context">
-                <div class="px-2 pt-2 pb-3 sm:px-3">
-                    <a href="{{ route('beranda') }}"
-                       class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Beranda</a>
-                    @guest()
-
-                    @else
-                        @if(Auth::user()->role_id == 1)
-                            <a href="{{ route('pemilu.index') }}"
-                               class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Pemilu</a>
-                            <a href="{{ route('tps.index') }}"
-                               class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">TPS</a>
-                            <a href="{{ route('user.index') }}"
-                               class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Relawan</a>
-                        @else
-                            <a href="{{ route('vote.index') }}"
-                               class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Input
-                                Suara</a>
-                        @endif
-                    @endguest
-                    <a href="{{ route('perhitungan.index') }}"
-                       class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Perhitungan
-                        Cepat</a>
-                </div>
-
-                <div class="pt-3 pb-3 border-t border-gray-700">
-                    @guest
-                        <div class="px-2">
-                            <a href="{{ route('login') }}"
-                               class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Login</a>
-                        </div>
-                        <div class="px-2">
-                            <a href="{{ route('register') }}"
-                               class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Register
-                                Relawan</a>
-                        </div>
-                    @else
-                        <div class="flex items-center px-5">
-                            <div class="flex-shrink-0">
-                                <img class="h-10 w-10 rounded-full"
-                                     src="{{ asset('img/default-user.png') }}"
-                                     alt="">
-                            </div>
-                            <div class="ml-3">
-                                <div
-                                    class="text-base font-medium leading-none text-white">{{ Auth::user()->name }}</div>
-                                <div
-                                    class="mt-1 text-sm font-medium leading-none text-gray-400">{{ Auth::user()->email }}</div>
-                            </div>
-                        </div>
-                        <div class="mt-3 px-2">
-                            {{--                            @if(Auth::user()->is_complete)--}}
-                            {{--                                <a href="{{ route('profile') }}"--}}
-                            {{--                                   class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">--}}
-                            {{--                                    Profile</a>--}}
-                            {{--                                <a href="{{ route('request') }}"--}}
-                            {{--                                   class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">--}}
-                            {{--                                    Permintaan</a>--}}
-                            {{--                            @else--}}
-                            {{--                                <a href="{{ route('invitation') }}"--}}
-                            {{--                                   class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">--}}
-                            {{--                                    Kode Undangan</a>--}}
-                            {{--                                <a href="{{ route('upload') }}"--}}
-                            {{--                                   class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">--}}
-                            {{--                                    Upload</a>--}}
-                            {{--                            @endif--}}
-                            <a href="#"
-                               class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
-                               onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                Sign out</a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
-                                {{ csrf_field() }}
-                            </form>
-                        </div>
-                    @endguest
+                <div class="-mr-2 flex md:hidden">
+                    <!-- Mobile menu button -->
+                    <button id="nav-toggle"
+                            class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white">
+                        <!-- Menu open: "hidden", Menu closed: "block" -->
+                        <svg class="block h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                        <!-- Menu open: "block", Menu closed: "hidden" -->
+                        <svg class="hidden h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
                 </div>
             </div>
-        </nav>
+        </div>
 
-        <header class="bg-white shadow">
-            <div class="p-4 max-w-3xl mx-auto">
-                <h1 class="text-2xl font-bold leading-tight text-gray-900">
-                    @yield('header')
-                </h1>
+        <div class="hidden md:hidden c-tw-js" id="nav-context">
+            <div class="px-2 pt-2 pb-3 sm:px-3">
+                <a href="{{ route('beranda') }}"
+                   class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Beranda</a>
+                @guest()
+
+                @else
+                    @if(Auth::user()->role_id == 1)
+                        <a href="{{ route('pemilu.index') }}"
+                           class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Pemilu</a>
+                        <a href="{{ route('tps.index') }}"
+                           class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">TPS</a>
+                        <a href="{{ route('user.index') }}"
+                           class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Relawan</a>
+                    @else
+                        <a href="{{ route('vote.index') }}"
+                           class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Input
+                            Suara</a>
+                    @endif
+                @endguest
+                <a href="{{ route('perhitungan.index') }}"
+                   class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Perhitungan
+                    Cepat</a>
             </div>
-        </header>
-        <main>
-            {{--            <button class="modal-open bg-transparent border border-gray-500 hover:border-indigo-500 text-gray-500 hover:text-indigo-500 font-bold py-2 px-4 rounded-full">Open Modal</button>--}}
-            @yield('content')
-        </main>
-    </div>
 
+            <div class="pt-3 pb-3 border-t border-gray-700">
+                @guest
+                    <div class="px-2">
+                        <a href="{{ route('login') }}"
+                           class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Login</a>
+                    </div>
+                    <div class="px-2">
+                        <a href="{{ route('register') }}"
+                           class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Register
+                            Relawan</a>
+                    </div>
+                @else
+                    <div class="flex items-center px-5">
+                        <div class="flex-shrink-0">
+                            <img class="h-10 w-10 rounded-full"
+                                 src="{{ asset('img/default-user.png') }}"
+                                 alt="">
+                        </div>
+                        <div class="ml-3">
+                            <div
+                                class="text-base font-medium leading-none text-white">{{ Auth::user()->name }}</div>
+                            <div
+                                class="mt-1 text-sm font-medium leading-none text-gray-400">{{ Auth::user()->email }}</div>
+                        </div>
+                    </div>
+                    <div class="mt-3 px-2">
+                        {{--                            @if(Auth::user()->is_complete)--}}
+                        {{--                                <a href="{{ route('profile') }}"--}}
+                        {{--                                   class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">--}}
+                        {{--                                    Profile</a>--}}
+                        {{--                                <a href="{{ route('request') }}"--}}
+                        {{--                                   class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">--}}
+                        {{--                                    Permintaan</a>--}}
+                        {{--                            @else--}}
+                        {{--                                <a href="{{ route('invitation') }}"--}}
+                        {{--                                   class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">--}}
+                        {{--                                    Kode Undangan</a>--}}
+                        {{--                                <a href="{{ route('upload') }}"--}}
+                        {{--                                   class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">--}}
+                        {{--                                    Upload</a>--}}
+                        {{--                            @endif--}}
+                        <a href="#"
+                           class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
+                           onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            Sign out</a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
+                            {{ csrf_field() }}
+                        </form>
+                    </div>
+                @endguest
+            </div>
+        </div>
+    </nav>
 
+    <header class="bg-white shadow">
+        <div class="flex h-16 justify-start items-center max-w-3xl mx-auto px-4">
+            <h1 class="text-2xl font-bold leading-tight text-gray-900">
+                @yield('header')
+            </h1>
+        </div>
+    </header>
+    <main id="main">
+        @yield('content')
+    </main>
+    <footer class="bg-gray-800">
+        <div class="max-w-7xl">
+            <div class="flex items-center justify-center h-16">
+                <div class="text-gray-300">© {{ date('Y')}} Developer Team - All Rights Reserved</div>
+            </div>
+        </div>
+    </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/gsap.min.js"
             integrity="sha512-3WGIRFCuTpZhqYujwLp5RtARPkOy3uRtc3RXB31bJ9/i6VH2C66Z0WBV6gHhdhbUIDKFx8yTkLfEjdQM5Wl+ZQ=="
             crossorigin="anonymous"></script>
     <script>
-        // $.fn.extend(
-        //     {
-        //         modal: function (action) {
-        //             const modal = this[0];
-        //             const body = document.querySelector('body')
-        //             const overlay = modal.querySelector('.modal-overlay')
-        //             const closemodal = modal.querySelectorAll('.modal-close')
-        //
-        //             switch(action) {
-        //                 case 'show':
-        //                     toggleModal()
-        //                     break;
-        //                 case 'hide':
-        //                     toggleModal()
-        //                     break;
-        //                 default:
-        //
-        //             }
-        //
-        //             overlay.addEventListener('click', toggleModal)
-        //             for (var i = 0; i < closemodal.length; i++) {
-        //                 closemodal[i].addEventListener('click', toggleModal)
-        //             }
-        //
-        //             document.onkeydown = function (evt) {
-        //                 evt = evt || window.event
-        //                 var isEscape = false
-        //                 if ("key" in evt) {
-        //                     isEscape = (evt.key === "Escape" || evt.key === "Esc")
-        //                 } else {
-        //                     isEscape = (evt.keyCode === 27)
-        //                 }
-        //                 if (isEscape && document.body.classList.contains('modal-active')) {
-        //                     toggleModal()
-        //                 }
-        //             };
-        //
-        //             function toggleModal() {
-        //                 modal.classList.toggle('opacity-0')
-        //                 modal.classList.toggle('pointer-events-none')
-        //                 body.classList.toggle('modal-active')
-        //             }
-        //         }
-        //
-        //     }
-        // );
     </script>
     @stack('script')
-
 </div>
 </body>
 </html>
