@@ -27,6 +27,7 @@ class CreateVotesTable extends Migration
             $table->integer('suara_tidak_sah')->default(0);
             $table->integer('total_suara')->default(0);
             $table->tinyInteger('has_vote')->default(0);
+            $table->foreignId('photo_id')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });

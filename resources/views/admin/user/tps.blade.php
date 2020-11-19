@@ -61,7 +61,7 @@
                     </tr>
                 @empty
                     <tr class="bg-gray-100 text-center">
-                        <td class="border-b px-4 py-2" colspan="4">Nodata</td>
+                        <td class="border-b px-4 py-2" colspan="8">Tidak Ada Data</td>
                     </tr>
                 @endforelse
                 </tbody>

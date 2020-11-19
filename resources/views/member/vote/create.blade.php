@@ -8,7 +8,7 @@
         <form method="POST" action="{{ route('vote.store') }}">
             @csrf
             <div class="flex flex-wrap mb-4 -mx-2">
-                <div class="flex flex-wrap mb-6 px-2 Container_election w-1/3">
+                <div class="flex flex-wrap mb-6 px-2 Container_election w-full sm:w-1/3">
                     <label for="election_id" class="block text-gray-700 text-sm font-bold mb-2">
                         Pemilu
                     </label>
@@ -30,7 +30,7 @@
                     </p>
                     @enderror
                 </div>
-                <div class="flex flex-wrap mb-6 px-2 Container_province w-1/3">
+                <div class="flex flex-wrap mb-6 px-2 Container_province w-full sm:w-1/3">
                     <label for="province_id" class="block text-gray-700 text-sm font-bold mb-2">
                         Provinsi
                     </label>
@@ -52,7 +52,7 @@
                     </p>
                     @enderror
                 </div>
-                <div class="flex flex-wrap mb-6 px-2 Container_district w-1/3">
+                <div class="flex flex-wrap mb-6 px-2 Container_district w-full sm:w-1/3">
                     <label for="district_id" class="block text-gray-700 text-sm font-bold mb-2">
                         Kabupaten
                     </label>
@@ -74,7 +74,7 @@
                     </p>
                     @enderror
                 </div>
-                <div class="flex flex-wrap mb-6 px-2 Container_subdistrict w-1/3">
+                <div class="flex flex-wrap mb-6 px-2 Container_subdistrict w-full sm:w-1/3">
                     <label for="subdistrict_id" class="block text-gray-700 text-sm font-bold mb-2">
                         Kecamatan
                     </label>
@@ -96,7 +96,7 @@
                     </p>
                     @enderror
                 </div>
-                <div class="flex flex-wrap mb-6 px-2 Container_village w-1/3">
+                <div class="flex flex-wrap mb-6 px-2 Container_village w-full sm:w-1/3">
                     <label for="village_id" class="block text-gray-700 text-sm font-bold mb-2">
                         Desa / Kelurahan
                     </label>
@@ -118,7 +118,7 @@
                     </p>
                     @enderror
                 </div>
-                <div class="flex flex-wrap mb-6 px-2 Container_tps w-1/3">
+                <div class="flex flex-wrap mb-6 px-2 Container_tps w-full sm:w-1/3">
                     <label for="tps_id" class="block text-gray-700 text-sm font-bold mb-2">
                         TPS
                     </label>

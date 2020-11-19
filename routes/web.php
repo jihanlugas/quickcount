@@ -74,6 +74,7 @@ Route::group(['prefix' => 'vote'], function () {
     Route::delete('{vote}', 'VoteController@destroy')->name('vote.destroy');
     Route::get('{vote}/voting', 'VoteController@voting')->name('vote.voting');
     Route::post('{vote}', 'VoteController@votingstore')->name('vote.votingstore');
+    Route::get('{vote}/rekapitulasi', 'VoteController@rekapitulasi')->name('vote.rekapitulasi');
 });
 
 Route::group(['prefix' => 'ajax'], function () {
@@ -88,6 +89,7 @@ Route::group(['prefix' => 'ajax'], function () {
     Route::post('getperhitungandata', 'AjaxController@getperhitungandata')->name('ajax.getperhitungandata');
     Route::post('getusertps', 'AjaxController@getusertps')->name('ajax.getusertps');
     Route::post('uploadphotocandidate', 'AjaxController@uploadphotocandidate')->name('ajax.uploadphotocandidate');
+    Route::post('uploadphotovote', 'AjaxController@uploadphotovote')->name('ajax.uploadphotovote');
 });
 
 Route::group(['prefix' => 'perhitungan'], function () {

@@ -14,8 +14,8 @@ class PublicController extends Controller
 
     public function beranda()
     {
-        return redirect(route("perhitungan.index"));
-//        return view('beranda');
+//        return redirect(route("perhitungan.index"));
+        return view('beranda');
     }
 
     public function success()
@@ -37,16 +37,4 @@ class PublicController extends Controller
     {
         return view('kegiatansosial');
     }
-
-//    public function tes()
-//    {
-//        DB::insert("INSERT INTO provinces (name, code)
-//                        SELECT wilayahs.name, wilayahs.code
-//                        FROM wilayahs
-//                        WHERE LENGTH(wilayahs.code) < 5");
-//    }
-
-
-
-
 }

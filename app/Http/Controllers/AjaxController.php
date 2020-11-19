@@ -205,9 +205,6 @@ class AjaxController extends Controller
             try {
                 if ($request->photo_id){
                     $photo_id = Photoupload::uploadPhoto($request->photo_id, $mCandidate->id, Photoupload::REF_TYPE_TABLE_CANDIDATES, $mCandidate->id);
-                    $vResult['status'] = true;
-                    $vResult['candidate_id'] = $mCandidate->id;
-                    $vResult['photo'] =
                     $mCandidate->photo_id = $photo_id;
                     $mCandidate->save();
 
@@ -223,6 +220,31 @@ class AjaxController extends Controller
             }
         }
 
+        return response()->json($vResult);
+    }
+
+    public function uploadphotovote(Request $request){
+        $vResult['status'] = false;
+        $mVote = Vote::findOrFail($request->vote_id);
+        if ($mVote){
+            DB::beginTransaction();
+            try {
+                if ($request->photo_id){
+                    $photo_id = Photoupload::uploadPhoto($request->photo_id, $mVote->id, Photoupload::REF_TYPE_TABLE_VOTES, $mVote->id);
+                    $mVote->photo_id = $photo_id;
+                    $mVote->save();
+
+                    $vResult['status'] = true;
+                    $vResult['vote_id'] = $mVote->id;
+                    $vResult['photo'] = Photoupload::getFilepathOrigin($mVote->photo_id);
+                }
+
+                DB::commit();
+            } catch (Throwable $e) {
+                DB::rollBack();
+                dd($e);
+            }
+        }
         return response()->json($vResult);
     }
 

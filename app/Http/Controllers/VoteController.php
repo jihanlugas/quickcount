@@ -85,6 +85,7 @@ class VoteController extends MemberController
     public function voting($id){
         $mUser = User::where('id', Auth::user()->id)->first();
         $mVote = Vote::findOrFail($id);
+
         if ($mVote->status != Vote::VOTE_STATUS_APPROVE_ID){
             return redirect()->route('vote.index')->with('danger', 'Status Input Suara Harus Diterima');
         }
@@ -93,14 +94,41 @@ class VoteController extends MemberController
             return redirect()->route('vote.index')->with('danger', 'Pemmision Denied');
         }
 
+        $mElectionvotes = Electionvote::where('vote_id', $mVote->id)->get();
         $mElection = Election::findOrFail($mVote->election_id);
         $mCandidates = Candidate::where('election_id', $mElection->id)
-                        ->orderBy('nourut', 'asc')->get();
+            ->orderBy('nourut', 'asc')->get();
+
+        if (count($mElectionvotes) == 0){
+            DB::beginTransaction();
+            try {
+                foreach ($mCandidates as $i => $mCandidate){
+                    $mElectionvote = new Electionvote();
+                    $mElectionvote->election_id = $mVote->election_id;
+                    $mElectionvote->province_id = $mVote->province_id;
+                    $mElectionvote->district_id = $mVote->district_id;
+                    $mElectionvote->subdistrict_id = $mVote->subdistrict_id;
+                    $mElectionvote->village_id = $mVote->village_id;
+                    $mElectionvote->tps_id = $mVote->tps_id;
+                    $mElectionvote->candidate_id = $mCandidate->id;
+                    $mElectionvote->user_id = $mUser->id;
+                    $mElectionvote->vote_id = $mVote->id;
+                    $mElectionvote->vote = 0;
+                    $mElectionvote->save();
+                    $mElectionvotes[$i] = $mElectionvote;
+                }
+                DB::commit();
+            } catch (Throwable $e) {
+                DB::rollBack();
+                dd($e);
+            }
+        }
 
         return view('member.vote.voting', [
             'mVote' => $mVote,
             'mElection' => $mElection,
-            'mCandidates' => $mCandidates,
+            'mElectionvotes' => $mElectionvotes,
+
         ]);
     }
 
@@ -119,23 +147,13 @@ class VoteController extends MemberController
 
         DB::beginTransaction();
         try {
-            $mVote->has_vote = 1;
+            $mVote->has_vote = 0;
             $mVote->suara_sah = $request->suara_sah;
             $mVote->suara_tidak_sah = $request->suara_tidak_sah;
             $mVote->total_suara = $request->suara_sah + $request->suara_tidak_sah;
             $mVote->save();
-            foreach ($request->candidates as $candidate => $vote){
-                $mCandidate = Candidate::findOrFail($candidate);
-                $mElectionvote = new Electionvote();
-                $mElectionvote->election_id = $mVote->election_id;
-                $mElectionvote->province_id = $mVote->province_id;
-                $mElectionvote->district_id = $mVote->district_id;
-                $mElectionvote->subdistrict_id = $mVote->subdistrict_id;
-                $mElectionvote->village_id = $mVote->village_id;
-                $mElectionvote->tps_id = $mVote->tps_id;
-                $mElectionvote->candidate_id = $mCandidate->id;
-                $mElectionvote->user_id = $mUser->id;
-                $mElectionvote->vote_id = $mVote->id;
+            foreach ($request->electionvotes as $electionvote_id => $vote){
+                $mElectionvote = Electionvote::findOrFail($electionvote_id);
                 $mElectionvote->vote = $vote;
                 $mElectionvote->save();
             }
@@ -146,5 +164,11 @@ class VoteController extends MemberController
             DB::rollBack();
             dd($e);
         }
+    }
+
+    public function rekapitulasi(){
+        $mVote = Vote::all();
+
+        dd($mVote);
     }
 }

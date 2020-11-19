@@ -45,21 +45,7 @@
                             <a href="{{ route('vote.voting', ['vote' => $mVote->id]) }}"
                                class="text-gray-100 bg-blue-500 hover:bg-blue-700 mx-2 px-3 py-2  rounded-lg focus:outline-none focus:shadow-outline">
                                 <i class="fas fa-vote-yea"></i></a>
-
                             @endif
-{{--                            <a href="{{ route('user.edit', ['user' => $mVote->id]) }}"--}}
-{{--                               class="text-gray-100 bg-yellow-500 hover:bg-yellow-700 mx-2 px-3 py-2  rounded-lg focus:outline-none focus:shadow-outline">--}}
-{{--                                <i class="fas fa-pencil-alt"></i></a>--}}
-{{--                            <form--}}
-{{--                                action="{{ route('user.destroy', ['user' => $mVote->id]) }}"--}}
-{{--                                method="post">--}}
-{{--                                @csrf--}}
-{{--                                @method('delete')--}}
-{{--                                <button type="submit"--}}
-{{--                                        class="text-gray-100 bg-red-500 hover:bg-red-700 mx-2 px-3 py-2  rounded-lg focus:outline-none focus:shadow-outline">--}}
-{{--                                    <i class="fas fa-trash"></i>--}}
-{{--                                </button>--}}
-{{--                            </form>--}}
                         </td>
                     </tr>
                 @empty

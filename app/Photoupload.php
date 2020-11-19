@@ -14,6 +14,7 @@ class Photoupload extends Model
     const FILE_DIRECTORY_RESIZE = self::RESIZE;
 
     const REF_TYPE_TABLE_CANDIDATES = 1;
+    const REF_TYPE_TABLE_VOTES = 2;
     const FILE_SIZE_MAX = 2 * 1024;
 
 
@@ -26,7 +27,7 @@ class Photoupload extends Model
         $data->ref_type = $ref_type;
         $data->ref_id = $ref_id;
         $data->folder_name = $mUploadinc->folder_name;
-        $data->alt_file = $file_name;
+        $data->alt_file = $file_name . '-' . date('H-i-s');
         $data->file_name = str_replace(' ', '-', $data->alt_file);
         $data->ext_file = $request->getClientOriginalExtension();
         $data->file_path = $data->folder_name . '/' . $data->file_name;
